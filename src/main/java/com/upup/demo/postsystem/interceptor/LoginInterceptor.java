@@ -1,5 +1,6 @@
 package com.upup.demo.postsystem.interceptor;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +40,10 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
         //todo add check
-        return true;
+        PrintWriter writer = response.getWriter();
+        writer.println("please login first");
+        writer.flush();
+        return false;
 
     }
 
