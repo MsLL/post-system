@@ -16,9 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
  * @Date 2021/1/26 下午11:48 拦截掉未登陆的用户(没有约定的header || cookie里面没有约定的key, 或者值解码不是一个系统用户)。login api,ping apis放行。 see
  * https://segmentfault.com/a/1190000015642264
  */
-
-//拦截器光加入容器是不生效的，还要注册，见WebMvcConfig
-//The value() is optional and represents an order value as defined in the Ordered interface. Lower values have higher priority. The default value is Ordered
+//NOTE-UPUP 2021/1/27 上午1:16 : 拦截器光加入容器是不生效的，还要注册，见WebMvcConfig
+//NOTE-UPUP 2021/1/27 上午1:16 : The value() is optional and represents an order value as defined in the Ordered interface. Lower values have higher priority. The default value is Ordered
 
 @Order(1)
 @Component
