@@ -18,5 +18,13 @@ GET http://localhost:8080/comment/ping
 POST http://localhost:8080/user/login
 ###
 DELETE http://localhost:8080/user/logout
+###
 
+
+
+//triger exception  login api only support POST
+GET http://localhost:8080/user/login
+###
+//triger exception  post/ping api only support GET
+POST http://localhost:8080/post/ping
 ###

@@ -26,17 +26,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = BizException.class)
     @ResponseBody
     public ResourceResponseModel bizExceptionHandler(HttpServletRequest req, BizException e) {
-        logger.error("发生业务异常！原因是：{} ,track" + e.getMessage(), e.getCause());
-        return ResourceResponseModel.builder()
-            .code(500)
-            .data(e.getMessage())
-            .build();
-    }
-
-    @ExceptionHandler(value = RuntimeException.class)
-    @ResponseBody
-    public ResourceResponseModel runtimeExceptionHandler(HttpServletRequest req, RuntimeException e) {
-        logger.error("发生业务异常！原因是：{} ,track" + e.getMessage(), e.getCause());
+        logger.error("发生异常！" + e.getMessage(), e);
         return ResourceResponseModel.builder()
             .code(500)
             .data(e.getMessage())
@@ -49,12 +39,23 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = NullPointerException.class)
     @ResponseBody
     public ResourceResponseModel nullPointExceptionHandler(HttpServletRequest req, NullPointerException e) {
-        logger.error("发生业务异常！原因是：{} ,track" + e.getMessage(), e.getCause());
+        logger.error("发生异常！" + e.getMessage(), e);
         return ResourceResponseModel.builder()
             .code(500)
             .data(e.getMessage())
             .build();
     }
+
+    @ExceptionHandler(value = RuntimeException.class)
+    @ResponseBody
+    public ResourceResponseModel runtimeExceptionHandler(HttpServletRequest req, RuntimeException e) {
+        logger.error("发生异常！" + e.getMessage(), e);
+        return ResourceResponseModel.builder()
+            .code(500)
+            .data(e.getMessage())
+            .build();
+    }
+
 
     /**
      * 处理其他异常
@@ -65,7 +66,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value =Exception.class)
     @ResponseBody
     public  ResourceResponseModel exceptionHandler(HttpServletRequest req, Exception e){
-        logger.error("发生业务异常！原因是：{} ,track" + e.getMessage(), e.getCause());
+        logger.error("发生异常！" + e.getMessage(), e);
         return ResourceResponseModel.builder()
             .code(500)
             .data(e.getMessage())
