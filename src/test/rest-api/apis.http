@@ -1,0 +1,22 @@
+//post resource
+GET http://localhost:8080/post/ping
+
+
+
+//answer resource
+###
+GET http://localhost:8080/answer/ping
+
+
+//comment resource
+###
+GET http://localhost:8080/comment/ping
+
+
+//user resource
+###
+POST http://localhost:8080/user/login
+###
+DELETE http://localhost:8080/user/logout
+
+###
