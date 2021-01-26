@@ -33,12 +33,13 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     @Override public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         logger.info("enter LoginInterceptor preHandle");
-        String uri=request.getRequestURI();//获取请求的RUi:去除http:localhost:8080这部分剩下的。也就是域名后面的path部分
+        //NOTE-UPUP 2021/1/27 上午1:21 : 获取请求的RUi,去除http:localhost:8080这部分剩下的。也就是域名后面的path部分
+        String uri=request.getRequestURI();
         if(excludePaths.stream().anyMatch((excludePath)-> uri.equals(excludePath))){
             return true;
         }
         //todo add check
-        return false;
+        return true;
 
     }
 
