@@ -33,7 +33,6 @@ public class LoginInterceptor implements HandlerInterceptor {
     }
 
     @Override public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        logger.info("enter LoginInterceptor preHandle");
         //NOTE-UPUP 2021/1/27 上午1:21 : 获取请求的RUi,去除http:localhost:8080这部分剩下的。也就是域名后面的path部分
         String uri=request.getRequestURI();
         if(excludePaths.stream().anyMatch((excludePath)-> uri.equals(excludePath))){
@@ -49,11 +48,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     @Override public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)
         throws Exception {
-        logger.info("enter LoginInterceptor postHandle");
     }
 
     @Override public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        logger.info("enter LoginInterceptor afterCompletion");
-
     }
 }
