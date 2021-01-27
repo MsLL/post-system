@@ -4,7 +4,7 @@ package com.upup.demo.postsystem.dictionary;
  * @Author tao.li
  * @Date 2021/1/28 上午1:49
  */
-public class UserConst {
+public class Constants {
     //
     public static final String COOKIE_DOMIN="localhost";
 

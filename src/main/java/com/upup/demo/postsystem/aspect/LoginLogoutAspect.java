@@ -1,6 +1,7 @@
 package com.upup.demo.postsystem.aspect;
 
 import com.google.gson.Gson;
+import com.upup.demo.postsystem.util.WebUtil;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import lombok.Getter;
@@ -27,8 +28,8 @@ public class LoginLogoutAspect {
     private Logger logger = LoggerFactory.getLogger(LoginLogoutAspect.class);
     ThreadLocal<LoginLogoutModel> threadLocal = new ThreadLocal<>();
 
-    @Pointcut("execution(public * com.upup.demo.postsystem.user.UserResource.login(..))"
-        + "|| execution(public * com.upup.demo.postsystem.user.UserResource.logout(..))")
+    @Pointcut("execution(public * com.upup.demo.postsystem.bss.user.UserResource.login(..))"
+        + "|| execution(public * com.upup.demo.postsystem.bss.user.UserResource.logout(..))")
     public void pointCuts() {
     }
 
@@ -39,7 +40,7 @@ public class LoginLogoutAspect {
 
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         String httpMethod = servletRequestAttributes.getRequest().getMethod();
-        String ip = getIpAddr(servletRequestAttributes.getRequest());
+        String ip = WebUtil.getIpAddr(servletRequestAttributes.getRequest());
         LoginLogoutModel loginLogoutModel = LoginLogoutModel.loginLogoutModelBuild(ip, date, type, httpMethod, null);
         threadLocal.set(loginLogoutModel);
     }
@@ -57,25 +58,6 @@ public class LoginLogoutAspect {
         threadLocal.remove();
     }
 
-    /**
-     * 获取登录用户远程主机ip地址
-     *
-     * @param request
-     * @return
-     */
-    private String getIpAddr(HttpServletRequest request) {
-        String ip = request.getHeader("x-forwarded-for");
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("Proxy-Client-IP");
-        }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("WL-Proxy-Client-IP");
-        }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getRemoteAddr();
-        }
-        return ip;
-    }
 }
 
 @Getter
