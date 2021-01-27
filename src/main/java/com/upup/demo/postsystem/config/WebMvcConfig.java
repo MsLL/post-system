@@ -1,6 +1,7 @@
 package com.upup.demo.postsystem.config;
 
 import com.upup.demo.postsystem.interceptor.LoginInterceptor;
+import com.upup.demo.postsystem.interceptor.OperationPermissionCheckInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -16,7 +17,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     LoginInterceptor loginInterceptor;
 
+    @Autowired
+    OperationPermissionCheckInterceptor operationPermissionCheckInterceptor;
+
     @Override public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor);
+        registry.addInterceptor(operationPermissionCheckInterceptor);
     }
+
+
 }

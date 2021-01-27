@@ -30,6 +30,7 @@ POST http://localhost:8080/post/ping
 ###
 
 
+//system manager
 GET http://localhost:8080/ping
 ###
 GET http://localhost:8080/shutdown

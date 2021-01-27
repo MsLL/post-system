@@ -1,5 +1,7 @@
 package com.upup.demo.postsystem;
 
+import com.upup.demo.postsystem.annotation.Permission;
+import com.upup.demo.postsystem.dictionary.PermissionConst;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -23,8 +25,8 @@ public class PostSystemController {
         return "pong";
     }
 
-    //todo add permission check
     //https://stackoverflow.com/questions/14423980/how-to-close-a-spring-applicationcontext
+    @Permission(value = PermissionConst.SHUTDOWN)
     @RequestMapping(value = "/shutdown", method = RequestMethod.GET)
     public void stop() {
         ((ConfigurableApplicationContext) applicationContext).close();
