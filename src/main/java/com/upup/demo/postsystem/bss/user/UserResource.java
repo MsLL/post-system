@@ -1,4 +1,4 @@
-package com.upup.demo.postsystem.user;
+package com.upup.demo.postsystem.bss.user;
 
 import com.upup.demo.postsystem.model.ResourceResponseModel;
 import org.springframework.stereotype.Controller;
