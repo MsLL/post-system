@@ -20,7 +20,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PACKAGE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class AuthenticateTypeAndAuthenticateModel {
     public static final AuthenticateTypeAndAuthenticateModel getAuthenticateTypeAndAuthenticateModel(String jsonData) {
         JsonObject jsonObject = JsonParser.parseString(jsonData).getAsJsonObject();
