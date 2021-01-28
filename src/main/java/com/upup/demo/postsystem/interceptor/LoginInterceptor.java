@@ -19,25 +19,13 @@ import org.springframework.web.servlet.ModelAndView;
  */
 //NOTE-UPUP 2021/1/27 上午1:16 : 拦截器光加入容器是不生效的，还要注册，见WebMvcConfig
 //NOTE-UPUP 2021/1/27 上午1:16 : The value() is optional and represents an order value as defined in the Ordered interface. Lower values have higher priority. The default value is Ordered
+//@Order(1) 不需要这么写了，比较分散，与excludePaths一样，在register拦截器的时候去指定order,这样更集中。
 
-@Order(1)
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
     private Logger logger= LoggerFactory.getLogger(LoginInterceptor.class);
-    private static List<String> excludePaths=new ArrayList<>();
-    static {
-        excludePaths.add("/user/login");
-        excludePaths.add("/post/ping");
-        excludePaths.add("/answer/ping");
-        excludePaths.add("/comment/ping");
-    }
 
     @Override public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //NOTE-UPUP 2021/1/27 上午1:21 : 获取请求的RUi,去除http:localhost:8080这部分剩下的。也就是域名后面的path部分
-        String uri=request.getRequestURI();
-        if(excludePaths.stream().anyMatch((excludePath)-> uri.equals(excludePath))){
-            return true;
-        }
         //todo add check
         PrintWriter writer = response.getWriter();
         writer.println("please login first");

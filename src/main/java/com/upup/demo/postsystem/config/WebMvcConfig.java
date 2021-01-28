@@ -21,9 +21,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
     OperationPermissionCheckInterceptor operationPermissionCheckInterceptor;
 
     @Override public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(loginInterceptor);
-        registry.addInterceptor(operationPermissionCheckInterceptor);
+        registry.addInterceptor(loginInterceptor)
+            .excludePathPatterns(
+            "/ping",
+            "/user/login",
+            "/post/ping",
+            "/answer/ping",
+            "/comment/ping")
+            .order(0);
+
+        registry.addInterceptor(operationPermissionCheckInterceptor)
+            .order(1);
     }
-
-
 }
