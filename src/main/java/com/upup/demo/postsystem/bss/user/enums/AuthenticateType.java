@@ -12,7 +12,7 @@ public enum AuthenticateType {
     OAuthAuthenticate(Constants.OAUTH_AUTH),
     AppkeyAppsecretAuthenticate(Constants.APPKEY_APPSECRET__AUTH);
 
-    private int authType;
+    private final int authType;
 
     //in enum class, construct is default private
     AuthenticateType(int authType) {
