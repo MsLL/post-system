@@ -22,14 +22,17 @@ import org.springframework.web.servlet.HandlerInterceptor;
 @Slf4j
 public class OperationPermissionCheckInterceptor implements HandlerInterceptor {
     @Override public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //notice : handel may not always a HandlerMethod,for example if no controller's handler match path,this might be null
+        if (handler instanceof HandlerMethod) {
             Method method = ((HandlerMethod) handler).getMethod();
             if (method.isAnnotationPresent(Permission.class)) {
-                Permission permission=method.getDeclaredAnnotation(Permission.class);
-                int[] permissionCodes=permission.value();
+                Permission permission = method.getDeclaredAnnotation(Permission.class);
+                int[] permissionCodes = permission.value();
                 log.info(Arrays.toString(permissionCodes));
                 //todo check if user has permissionCodes
                 return true;
             }
-            return true;
+        }
+        return true;
     }
 }
