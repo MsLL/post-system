@@ -8,6 +8,7 @@ import com.upup.demo.postsystem.bss.user.Constants;
 import com.upup.demo.postsystem.bss.user.enums.AuthenticateType;
 import com.upup.demo.postsystem.bss.user.model.AuthenticateModel;
 import com.upup.demo.postsystem.bss.user.model.UsernamePasswordAuthenticateModel;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
 public class AuthenticateTypeAndAuthenticateModel {
     public static final AuthenticateTypeAndAuthenticateModel getAuthenticateTypeAndAuthenticateModel(String jsonData) {
         JsonObject jsonObject = JsonParser.parseString(jsonData).getAsJsonObject();
