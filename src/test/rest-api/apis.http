@@ -13,9 +13,16 @@ GET http://localhost:8080/answer/ping
 GET http://localhost:8080/comment/ping
 
 
-//user resource
+//user resource  notice:请求体与请求头加个空行隔开，这样http client tool才能正确解析
 ###
 POST http://localhost:8080/user/login
+Content-Type: application/json
+
+{
+"authType":1,
+"username":"1A中文",
+"password":"encryedpass"
+}
 ###
 DELETE http://localhost:8080/user/logout
 ###
