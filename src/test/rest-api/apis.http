@@ -21,7 +21,7 @@ Content-Type: application/json
 {
 "authType":1,
 "username":"1A中文",
-"password":"encryedpass"
+"password":"979d697cc06f903246c2d2d70e07d030--md5(password_for_hfvj)"
 }
 ###
 POST http://localhost:8080/user/login
@@ -30,7 +30,7 @@ Content-Type: application/json
 {
   "authType":1,
   "username":"2B",
-  "password":"encryedpass"
+  "password":"af0c402fa7cbb47e212d20a068f558ce--md5(password_for_upup?)"
 }
 ###
 DELETE http://localhost:8080/user/logout
