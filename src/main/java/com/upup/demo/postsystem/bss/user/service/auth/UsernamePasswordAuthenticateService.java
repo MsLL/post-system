@@ -1,4 +1,4 @@
-package com.upup.demo.postsystem.bss.user.service;
+package com.upup.demo.postsystem.bss.user.service.auth;
 
 import com.upup.demo.postsystem.bss.user.model.AuthenticateModel;
 import com.upup.demo.postsystem.bss.user.model.AuthenticateResult;

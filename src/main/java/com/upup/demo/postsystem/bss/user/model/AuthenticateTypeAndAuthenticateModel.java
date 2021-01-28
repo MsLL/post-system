@@ -1,15 +1,10 @@
-package com.upup.demo.postsystem.bss.user.service;
+package com.upup.demo.postsystem.bss.user.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.upup.demo.postsystem.bss.user.Constants;
 import com.upup.demo.postsystem.bss.user.enums.AuthenticateType;
-import com.upup.demo.postsystem.bss.user.model.AuthenticateModel;
-import com.upup.demo.postsystem.bss.user.model.UsernamePasswordAuthenticateModel;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

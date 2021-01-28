@@ -1,8 +1,8 @@
 package com.upup.demo.postsystem.bss.user;
 
 import com.upup.demo.postsystem.bss.user.model.AuthenticateResult;
-import com.upup.demo.postsystem.bss.user.service.AuthenticateServiceFactory;
-import com.upup.demo.postsystem.bss.user.service.AuthenticateTypeAndAuthenticateModel;
+import com.upup.demo.postsystem.bss.user.service.auth.AuthenticateServiceFactory;
+import com.upup.demo.postsystem.bss.user.model.AuthenticateTypeAndAuthenticateModel;
 import com.upup.demo.postsystem.model.ResourceResponseModel;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
