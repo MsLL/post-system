@@ -1,5 +1,6 @@
 package com.upup.demo.postsystem.interceptor;
 
+import com.upup.demo.postsystem.bss.user.service.UserService;
 import com.upup.demo.postsystem.dictionary.Constants;
 import com.upup.demo.postsystem.util.WebUtil;
 import java.io.PrintWriter;
@@ -28,8 +29,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
-    @Autowired
-    StringRedisTemplate stringRedisTemplate;
+
+    @Autowired UserService userService;
 
     private Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 
@@ -42,7 +43,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             logined = false;
         } else {
             pser = WebUtil.getPserId(pser);
-            if (!pser.startsWith(Constants.PSER_KEY) || !stringRedisTemplate.hasKey(pser)) {
+            if (!userService.hasUserLogin(pser)) {
                 logined = false;
             }
         }
