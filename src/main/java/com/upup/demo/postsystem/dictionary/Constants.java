@@ -9,7 +9,7 @@ public class Constants {
     public static final String COOKIE_DOMIN="localhost";
 
     //post system user
-    public static final String COOKIE_ID="pser";
+    public static final String PSER_KEY="pser";
 
     //1 year
     public static final int DEFAULT_COOKIE_MAX_AGE=31536000;

@@ -52,6 +52,13 @@
       <version>2.8.6</version>
     </dependency>
 
+    <!--加密，摘要之类的用hutool 1.比百度copy靠谱 2.减少系统不必要的代码   https://www.v2ex.com/t/574952-->
+    <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-all</artifactId>
+      <version>5.5.7</version>
+    </dependency>
+
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
