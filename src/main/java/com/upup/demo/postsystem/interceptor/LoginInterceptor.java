@@ -1,13 +1,18 @@
 package com.upup.demo.postsystem.interceptor;
 
+import com.upup.demo.postsystem.dictionary.Constants;
+import com.upup.demo.postsystem.util.WebUtil;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,15 +28,32 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
-    private Logger logger= LoggerFactory.getLogger(LoginInterceptor.class);
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+
+    private Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 
     @Override public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //todo add check
-        PrintWriter writer = response.getWriter();
-        writer.println("please login first");
-        writer.flush();
-        return false;
+        boolean logined = true;
 
+        String pser = Optional.ofNullable(request.getHeader(Constants.PSER_KEY))
+            .orElse(WebUtil.getCookieValue(request, Constants.PSER_KEY));
+        if (pser == null) {
+            logined = false;
+        } else {
+            pser = WebUtil.getPserId(pser);
+            if (!pser.startsWith(Constants.PSER_KEY) || !stringRedisTemplate.hasKey(pser)) {
+                logined = false;
+            }
+        }
+
+        if (!logined) {
+            PrintWriter writer = response.getWriter();
+            writer.println("please login first");
+            writer.flush();
+            return false;
+        }
+        return true;
     }
 
     @Override public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)

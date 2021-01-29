@@ -34,6 +34,7 @@ Content-Type: application/json
 }
 ###
 DELETE http://localhost:8080/user/logout
+pser: e02c4bf2ecf3a0bc77bfa6db589e18c6a7055bcf1228382b792864404d3a1eff0fa105a91cea0b3f0c7998f2a5228aa2
 ###
 
 
