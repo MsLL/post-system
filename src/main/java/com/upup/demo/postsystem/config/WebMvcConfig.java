@@ -24,10 +24,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(loginInterceptor)
             .excludePathPatterns(
             "/ping",
+            "/listBeans",
             "/user/login",
             "/post/ping",
             "/answer/ping",
-            "/comment/ping")
+            "/comment/ping"
+            )
             .order(0);
 
         registry.addInterceptor(operationPermissionCheckInterceptor)

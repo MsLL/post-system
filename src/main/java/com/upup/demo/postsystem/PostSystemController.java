@@ -2,6 +2,10 @@ package com.upup.demo.postsystem;
 
 import com.upup.demo.postsystem.annotation.Permission;
 import com.upup.demo.postsystem.dictionary.PermissionConst;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -30,5 +34,23 @@ public class PostSystemController {
     @RequestMapping(value = "/shutdown", method = RequestMethod.GET)
     public void stop() {
         ((ConfigurableApplicationContext) applicationContext).close();
+    }
+
+    @RequestMapping(value = "listBeans")
+    //{"beanClassName":[bean name list]}
+    public Map<String, List<String>> listBeans() {
+        Map<String, Object> beanNameBean = applicationContext.getBeansOfType(Object.class);
+
+        //根据bean类名排序
+        Map<String, List<String>> beanClassName2Beans = new TreeMap<>();
+
+        beanNameBean.forEach((beanName, bean) -> {
+            String beanClassName = bean.getClass().getCanonicalName();
+            if (!beanClassName2Beans.containsKey(beanClassName)) {
+                beanClassName2Beans.put(beanClassName, new ArrayList<String>());
+            }
+            beanClassName2Beans.get(beanClassName).add(beanName);
+        });
+        return beanClassName2Beans;
     }
 }
