@@ -37,8 +37,8 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         boolean logined = true;
 
-        String pser = Optional.ofNullable(request.getHeader(Constants.PSER_KEY))
-            .orElse(WebUtil.getCookieValue(request, Constants.PSER_KEY));
+        String pser = Optional.ofNullable(WebUtil.getCookieValue(request, Constants.PSER_KEY))
+            .orElse(request.getHeader(Constants.PSER_KEY));
         if (pser == null) {
             logined = false;
         } else {
