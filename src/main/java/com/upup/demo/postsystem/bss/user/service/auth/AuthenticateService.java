@@ -1,10 +1,7 @@
 package com.upup.demo.postsystem.bss.user.service.auth;
 
-import com.upup.demo.postsystem.bss.user.model.AuthenticateModel;
-import com.upup.demo.postsystem.bss.user.model.AuthenticateResult;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import com.upup.demo.postsystem.bss.user.model.auth.AuthenticateModel;
+import com.upup.demo.postsystem.bss.user.model.auth.AuthenticateResult;
 
 /**
  * @Author tao.li

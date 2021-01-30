@@ -1,4 +1,4 @@
-package com.upup.demo.postsystem.bss.user.model;
+package com.upup.demo.postsystem.bss.user.model.auth;
 
 /**
  * @Author tao.li

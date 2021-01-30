@@ -1,8 +1,8 @@
 package com.upup.demo.postsystem.bss.user.service.auth;
 
-import com.upup.demo.postsystem.bss.user.model.AuthenticateModel;
-import com.upup.demo.postsystem.bss.user.model.AuthenticateResult;
-import com.upup.demo.postsystem.bss.user.model.UsernamePasswordAuthenticateModel;
+import com.upup.demo.postsystem.bss.user.model.auth.AuthenticateModel;
+import com.upup.demo.postsystem.bss.user.model.auth.AuthenticateResult;
+import com.upup.demo.postsystem.bss.user.model.auth.UsernamePasswordAuthenticateModel;
 
 /**
  * @Author tao.li

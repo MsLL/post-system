@@ -35,4 +35,6 @@ public class UserService {
     public void logoutUser(String pserId) {
         stringRedisTemplate.delete(pserId);
     }
+
+
 }

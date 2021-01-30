@@ -1,9 +1,9 @@
 package com.upup.demo.postsystem.bss.user;
 
-import com.upup.demo.postsystem.bss.user.model.AuthenticateResult;
+import com.upup.demo.postsystem.bss.user.model.auth.AuthenticateResult;
 import com.upup.demo.postsystem.bss.user.service.UserService;
 import com.upup.demo.postsystem.bss.user.service.auth.AuthenticateServiceFactory;
-import com.upup.demo.postsystem.bss.user.model.AuthenticateTypeAndAuthenticateModel;
+import com.upup.demo.postsystem.bss.user.model.auth.AuthenticateTypeAndAuthenticateModel;
 import com.upup.demo.postsystem.dictionary.Constants;
 import com.upup.demo.postsystem.model.ResourceResponseModel;
 import com.upup.demo.postsystem.util.WebUtil;

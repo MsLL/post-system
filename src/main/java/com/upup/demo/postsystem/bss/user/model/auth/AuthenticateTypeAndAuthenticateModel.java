@@ -1,4 +1,4 @@
-package com.upup.demo.postsystem.bss.user.model;
+package com.upup.demo.postsystem.bss.user.model.auth;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
