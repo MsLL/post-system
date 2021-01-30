@@ -82,7 +82,26 @@
       <artifactId>lettuce-core</artifactId>
       <version>6.0.2.RELEASE</version>
     </dependency>
+
+    <!--https://github.com/alibaba/druid-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid-spring-boot-starter</artifactId>
+      <version>1.2.4</version>
+    </dependency>
+    <!--fix nested exception is java.lang.NoClassDefFoundError: org/springframework/jdbc/datasource/embedded/EmbeddedDatabaseType -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+    <!-- mysql -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.22</version>
+    </dependency>
   </dependencies>
+
 
   <build>
     <plugins>
