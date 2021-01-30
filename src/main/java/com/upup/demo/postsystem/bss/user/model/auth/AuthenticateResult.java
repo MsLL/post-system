@@ -11,8 +11,9 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@AllArgsConstructor
+@Builder
 public class AuthenticateResult{
     private boolean success;
     private Object failReason;
+    private Object successData;
 }

@@ -34,7 +34,7 @@ create table if not exists comment(
 -- user design
 create table if not exists user(
     ID int primary key auto_increment ,
-    NAME varchar(20) not null ,
+    NAME varchar(20) unique not null  ,
     PHONE_NUMBER varchar(15),
     BIRTHDAY DATETIME,
     SALT varchar(20),
@@ -47,11 +47,11 @@ insert into user(NAME,SALT,CREATE_DATETIME,UPDATE_DATETIME) values ('A1','tbRXq5
 create table password_authenticate(
     ID int primary key auto_increment,
     USER_ID int not null unique ,
-    PASSWORD varchar(20) not null,
+    PASSWORD varchar(50) not null,
     CREATE_DATETIME datetime not null default now(),
     UPDATE_DATETIME datetime on update now() not null default now()
 );
-insert into password_authenticate(USER_ID, PASSWORD) values (1,'a1b23f2c'),(2,'c0932f32');
+insert into password_authenticate(USER_ID, PASSWORD) values (1,'c32821ff6a95c21320f0046f495ad9f7'),(2,'c0932f32');
 
 create table oauth_authenticate(
     ID int primary key auto_increment,

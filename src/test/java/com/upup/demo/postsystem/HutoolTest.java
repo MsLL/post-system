@@ -8,24 +8,30 @@ import cn.hutool.crypto.symmetric.DESede;
 import cn.hutool.crypto.symmetric.SymmetricAlgorithm;
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
+import org.junit.jupiter.api.Test;
 
 /**
  * @Author tao.li
  * @Date 2021/1/29 下午8:48
  */
 public class HutoolTest {
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        //testMd5();
-        test3DES();
-    }
 
-    public static void testMd5() {
+    @Test
+    public  void testMd5() {
         Digester md5 = new Digester(DigestAlgorithm.MD5);
         String digest = md5.digestHex("password_for_hfvj");
         System.out.println(digest);
     }
 
-    public static void test3DES() throws UnsupportedEncodingException {
+    @Test
+    public void testMd52(){
+        Digester md5 = new Digester(DigestAlgorithm.MD5);
+        String digest = md5.digestHex("tbRXq5979d697cc06f903246c2d2d70e07d030--md5(password_for_hfvj)");
+        System.out.println(digest);
+    }
+
+    @Test
+    public  void test3DES() throws UnsupportedEncodingException {
         //1.通过api生成一个秘钥（字节数组）。(秘钥是用一定的算法生成的，不是我们随便给的一个值)。我们要保存这个值，就把它base64编码一下，以字符串的形式保存，我们需要用的时候再解码一下字符串，就得到原秘钥字节数组了。
         byte[] key = SecureUtil.generateKey(SymmetricAlgorithm.DESede.getValue()).getEncoded();
         String base64Str= Base64.getEncoder().encodeToString(key);

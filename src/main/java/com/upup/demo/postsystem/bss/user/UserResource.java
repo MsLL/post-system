@@ -38,7 +38,7 @@ public class UserResource {
                 .authenticate(authenticateTypeAndAuthenticateModel.getAuthenticateModel());
         if (authenticateResult.isSuccess()) {
             String pserId = WebUtil.generatePserId();
-            userService.loginUser(WebUtil.getPserId(pserId));
+            userService.loginUser(WebUtil.getPserId(pserId), authenticateResult.getSuccessData());
             WebUtil.addCookie(response, Constants.PSER_KEY, pserId);
 
             return ResourceResponseModel.builder().code(200).data("login success").build();
