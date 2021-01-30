@@ -37,10 +37,11 @@ create table if not exists user(
     NAME varchar(20) not null ,
     PHONE_NUMBER varchar(15),
     BIRTHDAY DATETIME,
+    SALT varchar(20),
     CREATE_DATETIME datetime not null default now(),-- may used as register datetime
     UPDATE_DATETIME datetime on update now() not null
 );
-insert into user(NAME,CREATE_DATETIME,UPDATE_DATETIME) values ('A1',now(),now()),('A2',now(),now());
+insert into user(NAME,SALT,CREATE_DATETIME,UPDATE_DATETIME) values ('A1','tbRXq5',now(),now()),('A2','ByWF8j',now(),now());
 
 -- 这张表也可以直接放在user表里面
 create table password_authenticate(
