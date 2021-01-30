@@ -8,11 +8,10 @@ import org.springframework.core.annotation.AliasFor;
 
 /**
  * @Author tao.li
- * @Date 2021/1/27 下午11:52
- * imitate org.springframework.web.bind.annotation.RequestMapping
+ * @Date 2021/1/27 下午11:52 imitate org.springframework.web.bind.annotation.RequestMapping
  */
 
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Permission {
 

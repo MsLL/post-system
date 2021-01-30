@@ -1,11 +1,10 @@
 package com.upup.demo.postsystem.bss.user.service;
 
 import com.upup.demo.postsystem.dictionary.Constants;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
 
 /**
  * @Author tao.li
@@ -30,8 +29,7 @@ public class UserService {
     public void loginUser(String pserId) {
         //todo: add info
         stringRedisTemplate.opsForValue().set(pserId, "{}");
-        //后续处理请求的时候可能还要拿这个pserId
-        RequestContextHolder.getRequestAttributes().setAttribute(Constants.PSER_KEY, pserId, RequestAttributes.SCOPE_REQUEST);
+        stringRedisTemplate.expireAt(pserId, new Date(System.currentTimeMillis() + Constants.DEFAULT_COOKIE_MAX_AGE * (long)1000));
     }
 
     public void logoutUser(String pserId) {

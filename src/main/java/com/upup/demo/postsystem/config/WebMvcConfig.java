@@ -25,6 +25,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
             .excludePathPatterns(
             "/ping",
             "/listBeans",
+            "/parse",
             "/user/login",
             "/post/ping",
             "/answer/ping",

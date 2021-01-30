@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -54,6 +56,8 @@ public class LoginInterceptor implements HandlerInterceptor {
             writer.flush();
             return false;
         }
+        //后续处理请求的时候可能还要拿这个pserId
+        RequestContextHolder.getRequestAttributes().setAttribute(Constants.PSER_KEY, pser, RequestAttributes.SCOPE_REQUEST);
         return true;
     }
 

@@ -2,6 +2,7 @@ package com.upup.demo.postsystem;
 
 import com.upup.demo.postsystem.annotation.Permission;
 import com.upup.demo.postsystem.dictionary.PermissionConst;
+import com.upup.demo.postsystem.util.WebUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -10,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -52,5 +55,10 @@ public class PostSystemController {
             beanClassName2Beans.get(beanClassName).add(beanName);
         });
         return beanClassName2Beans;
+    }
+
+    @RequestMapping(value = "/parse",method = RequestMethod.GET)
+    public String parsePserId(@RequestParam("pserId") String pserId){
+        return WebUtil.getPserId(pserId);
     }
 }
