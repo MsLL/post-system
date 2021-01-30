@@ -4,7 +4,7 @@
 # ng
 # bss 
 ## 1.user module
-### 1.怎样用户提交密码的安全性：
+### 1.[技术]怎样用户提交密码的安全性：
 1.网站开启HTTPS。没开呢？很多时候都是先http，而后才开HTTPS：前端md5(user_password_input)，后端md5(salt+md5(user_password_input))     
 2.每个用户一个自己的salt，作为自己的主属性存在user表里。
 
@@ -37,6 +37,34 @@ request到来的时候，怎么保存pser，请求处理完还要从删除。具
 UUID一个字符串，3DES加密，然后Hex返回(直接new String的话可能乱码)。前端带回来的值如果解不出来，说明不是一个系统生成的值。
 
 怎么好像修改加密后的值，还是解密出来了一个字符串，虽然不是原字符串，以为会抛异常呢。为了解决这个事情，在UUID前面加了一个PSER_KEY前缀，这样可以通过检测加密出来的值是不是以PSER_KEY前缀开团来判断是不是系统生成的值。
+
+### 5.[业务，技术]搞个job，定期同步[endpoint，权限码集合]到数据库
+
+```java
+@Controller
+@ResponseBody
+@Permission(value = PermissionConst.xxx)
+public class PostSystemController {
+    @Permission(value = PermissionConst.SHUTDOWN)
+    @RequestMapping(value = "/shutdown", method = RequestMethod.GET)
+    public void stop() {
+    }
+}
+```
+
+形如这样的话，数据库就应该有两条记录：
+
+</,[ PermissionConst.xxx]>
+
+<\/shutdown,[PermissionConst.xxx,PermissionConst.SHUTDOWN]>
+
+如何拿到所有的controller类：检查所有bean，看有没有被controoler或restcontroller注解。
+
+springboot-xxljob。
+
+## 技术问题
+
+### 方法缓存
 
 
 

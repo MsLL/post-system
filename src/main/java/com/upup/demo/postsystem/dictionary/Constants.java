@@ -8,7 +8,7 @@ public class Constants {
     //
     public static final String COOKIE_DOMIN="localhost";
 
-    //post system user
+    //post system user key ,typically used as session_id
     public static final String PSER_KEY="pser";
 
     //1 year

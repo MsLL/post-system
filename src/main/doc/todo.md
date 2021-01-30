@@ -3,3 +3,27 @@
 1.捕获的全局异常，不仅打log到标准输出，也往es打一份。  
 2.前面部署nginx, load balance到post service  
 3.post service、mapi、op三个service刚好试下微服务。  
+
+4.搞个job，定期同步[endpoint，权限码集合]到数据库。spring-xxljob。
+
+```java
+@Controller
+@ResponseBody
+@Permission(value = PermissionConst.xxx)
+public class PostSystemController {
+    @Permission(value = PermissionConst.SHUTDOWN)
+    @RequestMapping(value = "/shutdown", method = RequestMethod.GET)
+    public void stop() {
+    }
+}
+```
+
+形如这样的话，数据库就应该有两条记录：
+
+</,[ PermissionConst.xxx]>
+
+<\/shutdown,[PermissionConst.xxx,PermissionConst.SHUTDOWN]>
+
+如何拿到所有的controller类：检查所有bean，看有没有被controoler或restcontroller注解
+
+5.swagger，接口太多了
