@@ -8,3 +8,7 @@ spring:
         #Spring Boot 2.X 版本不再支持配置继承，多数据源的话每个数据源的所有配置都需要单独配置，否则配置不会生效,所以 initial-size,max-active...放在了这里
         initial-size: 5
         max-active: 20
+mybatis:
+  #todo 把mapper.xml文件和dao放在一起，配置maven插件，打包的时候自动把mapper文件移动到resource/mybatis/mapper目录下
+  #mapper.xml文件在类路径下的位置
+  mapper-locations: classpath:mybatis/mapper/*.xml
