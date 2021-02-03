@@ -15,7 +15,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class DemoScheduledTask {
 
-    @Scheduled(fixedRate = 3000)
+    //@Scheduled(fixedRate = 3000)
+    @Scheduled(cron = "0 0 0/1 * * ?")
     public void scheduledTask() {
         System.out.println("      Demo Scheduled 任务执行时间：" + LocalDateTime.now());
     }
