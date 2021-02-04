@@ -2,3 +2,5 @@
 spring:
   profiles:
     active: dev
+
+#各个环境的通用配置可以放在这个文件
