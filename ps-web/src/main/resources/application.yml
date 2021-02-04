@@ -1,6 +1,6 @@
-#换成占位符，maven打包的时候替换
+#profiles.active is a placeholder defined in pom.xml ,maven resources plugin will replace it where building, see filtering
 spring:
   profiles:
-    active: dev
+    active: @profiles.active@
 
 #各个环境的通用配置可以放在这个文件
