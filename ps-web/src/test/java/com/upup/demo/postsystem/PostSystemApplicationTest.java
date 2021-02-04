@@ -26,7 +26,7 @@ class PostSystemApplicationTest {
         System.out.println(Arrays.toString(environment.getDefaultProfiles()));
         System.out.println(Arrays.toString(environment.getActiveProfiles()));
 
-        System.out.println(environment.getProperty("upup.xxx"));
+        System.out.println(environment.getProperty("author.name"));
     }
 
     public void test1(){
