@@ -10,7 +10,7 @@
   </parent>
   <groupId>com.upup.demo</groupId>
   <artifactId>post-web</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>post-web-service</name>
   <description>a post system</description>
   <properties>
