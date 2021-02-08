@@ -67,5 +67,33 @@ springboot-xxljob。
 
 ### 方法缓存
 
+# 部署
 
+## dev
 
+## prod
+
+prod用docker-compose部署。
+
+1.打jar包
+
+```shell
+#pwd: ~/work_spaces/post-system
+mvn clean package -Dmaven.test.skip=true -P prod
+```
+
+2.容器化应用(打成镜像)
+
+```shell
+#pwd: /work_spaces/post-system/ps-web
+docker build -t upupdididi/post-web-service:v1.0.0 .
+```
+
+3.启系统
+
+```shell
+#pwd: /work_spaces/post-system/ps-web
+docker-compose up -d
+```
+
+如果web-service挂了，docker logs containerId看一下，mysql连不上导致启动失败可能是mysql的post数据库没建。

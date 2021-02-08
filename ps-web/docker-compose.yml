@@ -1,0 +1,29 @@
+# imatate https://github.com/macrozheng/mall/blob/d3a8fb5dcd/document/docker/docker-compose-app.yml https://www.jianshu.com/p/46db38b94200
+version: '3'
+services:
+  ps-mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD : "123456"
+    ports:
+    - 3306:3306
+    restart: always
+  ps-redis:
+    image: redis:6.0.10
+    ports:
+    - 6379:6379
+    entrypoint: redis-server --appendonly yes
+    restart: always
+  web:
+    image: upupdididi/post-web-service:v1.0.0
+    ports:
+    - 8080:8080
+    depends_on:
+      - ps-mysql
+      - ps-redis
+    links:
+#   application-prod.yml use these alias
+      - ps-mysql:mysqlServerHost
+      - ps-redis:redisServerHost
+
+

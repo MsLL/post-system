@@ -1,0 +1,17 @@
+#prod 用docker-compose启,url里面关于localhost的都换掉
+spring:
+  datasource:
+    druid:
+      mysql:
+#mysqlServerHost is a mark,
+        url: jdbc:mysql://mysqlServerHost:3306/post
+        username: root
+        password: 123456
+        initial-size: 5
+        max-active: 20
+  redis:
+    host: redisServerHost
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
