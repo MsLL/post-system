@@ -3,10 +3,12 @@ package com.upup.demo.postsystem;
 import com.upup.demo.postsystem.annotation.Permission;
 import com.upup.demo.postsystem.dictionary.PermissionConst;
 import com.upup.demo.postsystem.util.WebUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -39,7 +41,7 @@ public class PostSystemController {
         ((ConfigurableApplicationContext) applicationContext).close();
     }
 
-    @RequestMapping(value = "listBeans")
+    @RequestMapping(value = "listBeans", method = RequestMethod.GET)
     //{"beanClassName":[bean name list]}
     public Map<String, List<String>> listBeans() {
         Map<String, Object> beanNameBean = applicationContext.getBeansOfType(Object.class);
@@ -57,8 +59,8 @@ public class PostSystemController {
         return beanClassName2Beans;
     }
 
-    @RequestMapping(value = "/parse",method = RequestMethod.GET)
-    public String parsePserId(@RequestParam("pserId") String pserId){
+    @RequestMapping(value = "/parse", method = RequestMethod.GET)
+    public String parsePserId(@RequestParam("pserId") String pserId) {
         return WebUtil.getPserId(pserId);
     }
 }

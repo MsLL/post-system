@@ -97,3 +97,12 @@ docker-compose up -d
 ```
 
 如果web-service挂了，docker logs containerId看一下，mysql连不上导致启动失败可能是mysql的post数据库没建。
+
+4.关闭系统
+
+```shell
+#pwd: /work_spaces/post-system/ps-web
+docker-compose down
+```
+
+docker-compose down会停stop容器并remove容器，很干净。如果要持久化数据，修改docker-compose.yml文件，做数据卷映射。

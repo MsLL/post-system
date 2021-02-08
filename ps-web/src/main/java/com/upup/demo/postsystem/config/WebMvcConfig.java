@@ -20,20 +20,27 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     OperationPermissionCheckInterceptor operationPermissionCheckInterceptor;
 
-    @Override public void addInterceptors(InterceptorRegistry registry) {
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor)
-            .excludePathPatterns(
-            "/ping",
-            "/listBeans",
-            "/parse",
-            "/user/login",
-            "/post/ping",
-            "/answer/ping",
-            "/comment/ping"
-            )
-            .order(0);
+                .excludePathPatterns(
+                        "/ping",
+                        "/listBeans",
+                        "/parse",
+                        "/user/login",
+                        "/post/ping",
+                        "/answer/ping",
+                        "/comment/ping",
+
+//swagger bypass: swagger-ui.html appears to be empty    https://github.com/springfox/springfox/issues/2093
+                        "/swagger-ui.html",
+                        "/webjars/**",
+                        "/swagger-resources/**",
+                        "/v2/api-docs"
+                )
+                .order(0);
 
         registry.addInterceptor(operationPermissionCheckInterceptor)
-            .order(1);
+                .order(1);
     }
 }
