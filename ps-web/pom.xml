@@ -126,6 +126,14 @@
       <version>1.6.5</version>
     </dependency>
 
+    <!--zxing 二维码生成/解析库 google zebra crossing-->
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>javase</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+
+
     <!--swagger ui-->
     <dependency>
       <groupId>io.springfox</groupId>

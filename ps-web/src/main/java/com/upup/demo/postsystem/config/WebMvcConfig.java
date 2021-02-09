@@ -31,6 +31,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
                         "/post/ping",
                         "/answer/ping",
                         "/comment/ping",
+                        "/qrcode",
 
 //swagger bypass: swagger-ui.html appears to be empty    https://github.com/springfox/springfox/issues/2093
                         "/swagger-ui.html",
