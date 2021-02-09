@@ -119,6 +119,14 @@
       <version>2.1.4</version>
     </dependency>
 
+    <!--minio java client   https://github.com/minio/minio-java-->
+    <dependency>
+      <groupId>io.minio</groupId>
+      <artifactId>minio</artifactId>
+      <version>8.0.3</version>
+    </dependency>
+
+
     <!--java发邮件-->
     <dependency>
       <groupId>com.sun.mail</groupId>
