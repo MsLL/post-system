@@ -1,4 +1,4 @@
-package com.upup.demo.postsystem.util;
+package com.upup.demo.postsystem.bss.email;
 
 import java.util.Properties;
 import javax.mail.Authenticator;

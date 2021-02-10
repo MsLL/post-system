@@ -1,4 +1,4 @@
-package com.upup.demo.postsystem.util;
+package com.upup.demo.postsystem.bss.qrcode;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;

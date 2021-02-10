@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @Date 2021/2/9 22:00
  */
 @SpringBootTest
-class MinIOConfigureTest {
+class MinIOConfigurationTest {
     @Autowired
     MinioClient minioClient;
 

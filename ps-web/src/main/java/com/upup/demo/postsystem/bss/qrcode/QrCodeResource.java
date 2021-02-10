@@ -1,6 +1,6 @@
-package com.upup.demo.postsystem.bss;
+package com.upup.demo.postsystem.bss.qrcode;
 
-import com.upup.demo.postsystem.util.QrcodeUtil;
+import com.upup.demo.postsystem.bss.qrcode.QrcodeUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
-import java.awt.image.BufferedImage;
 
 /**
  * @Author tao.li
@@ -18,7 +17,7 @@ import java.awt.image.BufferedImage;
 @Controller
 @RequestMapping("/qrcode")
 @ResponseBody
-public class QrCodeController {
+public class QrCodeResource {
     @RequestMapping(method = RequestMethod.GET)
     public void getQrCode(HttpServletResponse response, @RequestParam("content") String content) {
         try {

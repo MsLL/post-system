@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(MinIOProperties.class)
-public class MinIOConfigure {
+public class MinIOConfiguration {
 
     @Autowired
     MinIOProperties minIOProperties;

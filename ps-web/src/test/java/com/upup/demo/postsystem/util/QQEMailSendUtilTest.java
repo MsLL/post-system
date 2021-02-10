@@ -1,8 +1,7 @@
 package com.upup.demo.postsystem.util;
 
+import com.upup.demo.postsystem.bss.email.QQEMailSendUtil;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @Author tao.li
