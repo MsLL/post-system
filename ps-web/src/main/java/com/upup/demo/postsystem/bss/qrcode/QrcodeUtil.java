@@ -7,6 +7,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
 import javax.imageio.ImageIO;
+import javax.naming.OperationNotSupportedException;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
@@ -58,8 +59,11 @@ public class QrcodeUtil {
 
     ;
 
+    /**
+     * 貌似不需要这个功能
+     */
     public static byte[] parse(byte[] data) {
-        return new byte[1];
+        throw new RuntimeException(new OperationNotSupportedException());
     }
 
     ;
