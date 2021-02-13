@@ -1,4 +1,4 @@
-package com.upup.demo.postsystem.util;
+package com.upup.demo.postsystem.bss.email;
 
 import com.upup.demo.postsystem.bss.email.QQEMailSendUtil;
 import org.junit.jupiter.api.Test;
