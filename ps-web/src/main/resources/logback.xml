@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <!-- imitate this:   <include resource="org/springframework/boot/logging/logback/base.xml"/>-->
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <appender name="CONSOLE_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--转换词conversions words: http://logback.qos.ch/manual/layouts.html-->
+            <!--日期时间 线程名 日志级别 logger名(LoggerFactory.getLogger时传递的logger名) 日志消息 换行符-->
+            <pattern>%d %thread %level %logger: %message %n</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="ES_APPENDER" class="com.upup.demo.postsystem.bss.log.EsAppender"></appender>
+
+    <!--配置root logger, 其它logger默认会继承root logger的配置-->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE_APPENDER"/>
+        <appender-ref ref="ES_APPENDER"/>
+    </root>
+
+</configuration>
