@@ -14,5 +14,7 @@ public class Constants {
     //1 year
     public static final int DEFAULT_COOKIE_MAX_AGE=31536000;
 
+    public static final String ES_LOG_PREFIX="post-system-log-";
+
 
 }

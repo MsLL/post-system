@@ -149,6 +149,13 @@
       <version>3.4.1</version>
     </dependency>
 
+    <!-- yaml解析 -->
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>1.27</version>
+    </dependency>
+
 
     <!--swagger ui-->
     <dependency>

@@ -1,5 +1,6 @@
 package com.upup.demo.postsystem.bss.schedule;
 
+import com.upup.demo.postsystem.dictionary.Constants;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.client.indices.CreateIndexRequest;
@@ -29,7 +30,7 @@ public class DailyCreateEsIndexTask {
         System.out.println("start DailyCreateEsIndexTask at: " + dateTime.toString("yyyy_MM_dd HH:mm:ss,sss"));
         for (int i = 0; i <= 2; i++) {
             try {
-                createIndexIfNotExist("post-system-" + dateTime.plusDays(i).toString("yyyy_MM_dd"));
+                createIndexIfNotExist(Constants.ES_LOG_PREFIX + dateTime.plusDays(i).toString("yyyy_MM_dd"));
             } catch (Exception e) {
                 System.out.println(e);
             }
