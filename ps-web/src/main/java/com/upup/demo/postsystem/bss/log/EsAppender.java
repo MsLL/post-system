@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.upup.demo.postsystem.dictionary.Constants;
 import com.upup.demo.postsystem.enums.Env;
+import com.upup.demo.postsystem.util.SoutExceptionUtil;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -22,6 +23,7 @@ import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.unit.ByteSizeUnit;
 import org.elasticsearch.common.unit.ByteSizeValue;
+import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.joda.time.DateTime;
 import org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchRestClientProperties;
@@ -29,6 +31,7 @@ import org.yaml.snakeyaml.Yaml;
 
 import java.util.Arrays;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author tao.li
@@ -93,10 +96,7 @@ public class EsAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
             //step2:json to dto obj
             elasticsearchRestClientProperties = new Gson().fromJson(jsonElement, ElasticsearchRestClientProperties.class);
         } catch (Exception e) {
-            System.out.println(e);
-
-            String[] stack = Arrays.stream(e.getStackTrace()).map(stackTraceElement -> stackTraceElement.toString()).toArray(String[]::new);
-            System.out.println(String.join(System.getProperty("line.separator"), Arrays.asList(stack)));
+            SoutExceptionUtil.soutException(e);
 
         }
 
@@ -126,6 +126,7 @@ public class EsAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
         BulkProcessor.Listener listener = new BulkProcessor.Listener() {
             @Override
             public void beforeBulk(long l, BulkRequest bulkRequest) {
+                System.out.println("do bulk ,size : " + bulkRequest.requests().size());
             }
 
             @Override
@@ -134,6 +135,7 @@ public class EsAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
 
             @Override
             public void afterBulk(long l, BulkRequest bulkRequest, Throwable throwable) {
+                SoutExceptionUtil.soutException(throwable);
             }
         };
 
@@ -143,6 +145,7 @@ public class EsAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
                 }, listener)
                 .setBulkActions(100)
                 .setBulkSize(new ByteSizeValue(1, ByteSizeUnit.MB))
+                .setFlushInterval(new TimeValue(60, TimeUnit.SECONDS))
                 .build();
         return bulkProcessor;
     }
