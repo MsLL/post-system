@@ -7,6 +7,10 @@ services:
       - MYSQL_ROOT_PASSWORD=123456
     ports:
     - 3306:3306
+    volumes:
+      # 把初始化mysql的两个文件映射过去。直接映射文件而不是目录，避免不需要的文件被映射过去。mysql启动的时候会扫描/docker-entrypoint-initdb.d目录下的.sql文件并读取、执行。
+    - ~/work_space/post-system/ps-web/src/main/db/settings.sql:/docker-entrypoint-initdb.d/settings.sql
+    - ~/work_space/post-system/ps-web/src/main/db/data.sql:/docker-entrypoint-initdb.d/data.sql
     restart: always
   ps-redis:
     image: redis:6.0.10
