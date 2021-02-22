@@ -14,6 +14,22 @@ services:
     - 6379:6379
     entrypoint: redis-server --appendonly yes
     restart: always
+  ps-elasticsearch:
+    image: elasticsearch:7.8.1
+    ports:
+    - 9200:9200
+    - 9300:9300
+    environment:
+      DISCOVERY_TYPE: "single-node"
+  ps-kibana:
+    image: kibana:7.8.1
+    ports:
+    - 5601:5601
+    links:
+      - ps-elasticsearch:elasticsearchServerHost
+    environment:
+      ELASTICSEARCH_HOSTS:
+        - http://elasticsearchServerHost:9200
   web:
     image: upupdididi/post-web-service:v1.0.0
     ports:
@@ -21,6 +37,7 @@ services:
     depends_on:
       - ps-mysql
       - ps-redis
+      - ps-elasticsearch
     links:
 #   application-prod.yml use these alias
       - ps-mysql:mysqlServerHost
