@@ -98,6 +98,16 @@ docker-compose up -d
 
 如果web-service挂了，docker logs containerId看一下，mysql连不上导致启动失败可能是mysql的post数据库没建。
 
+如果elasticsearch挂了，docker logs containerId看一下，用docker-compose启的时候，ubuntu18.04有如下报错
+
+error1.
+
+```
+ max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+```
+
+https://stackoverflow.com/a/57998152
+
 4.关闭系统
 
 ```shell

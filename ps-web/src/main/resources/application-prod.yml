@@ -15,6 +15,8 @@ spring:
     rest:
       uris:
         - http://elasticsearchServerHost:9200
+minio:
+  host: minioServerHost
 
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
