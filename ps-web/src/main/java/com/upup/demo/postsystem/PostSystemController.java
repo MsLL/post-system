@@ -5,6 +5,7 @@ import com.upup.demo.postsystem.dictionary.PermissionConst;
 import com.upup.demo.postsystem.util.WebUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -57,6 +58,16 @@ public class PostSystemController {
             beanClassName2Beans.get(beanClassName).add(beanName);
         });
         return beanClassName2Beans;
+    }
+
+    @RequestMapping(value = "listClassPath", method = RequestMethod.GET)
+    public String[] listClassPath(){
+        String classpath=System.getProperty("java.class.path");
+        //路径分隔符号通过path.separator系统属性获取，win下是分号(;),linux下是冒号(:)
+        String[] classPathEntries=classpath.split(System.getProperty("path.separator"));
+        //排下序，
+        Arrays.sort(classPathEntries);
+        return classPathEntries;
     }
 
     @RequestMapping(value = "/parse", method = RequestMethod.GET)
