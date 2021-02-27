@@ -47,6 +47,3 @@ docker-compose down
 ```
 
 docker-compose down会停stop容器并remove容器，很干净。如果要持久化数据，修改docker-compose.yml文件，做数据卷映射。
-
-# 技术选型
-
