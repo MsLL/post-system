@@ -2,4 +2,5 @@
 2.前面部署nginx, load balance到post service  
 3.post service、mapi、op三个service刚好试下微服务。  
 4.压力测试。用ab工具，jmeter试试。  
-5.data volume map;
+5.data volume map;  
+6.部署nginx。1.部署前端构建出来的静态文件；2.web-service负载均衡
