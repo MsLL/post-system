@@ -26,6 +26,12 @@
       <artifactId>spring-boot-starter-aop</artifactId>
     </dependency>
 
+    <!--不引入也不影响功能正常work。就是使用@ConfigurationProperties注解的时候,ide提示Spring Boot Configuration Annotation Processor not found in classpath-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
@@ -131,6 +137,25 @@
       <groupId>org.elasticsearch.client</groupId>
       <artifactId>elasticsearch-rest-high-level-client</artifactId>
       <version>7.8.1</version>
+    </dependency>
+
+    <!--zookeeper High level Client ,that greatly simplifies using ZooKeeper.-->
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-framework</artifactId>
+      <version>5.1.0</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>org.apache.zookeeper</artifactId>
+          <groupId>zookeeper</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!--部署的zookeeper infra是3.6.2,版本，但是curator-framework:5.1.0自己依赖的是3.6.0版本。为了与server版本一致，所以上面显式exclude掉zookeeper依赖，这里再引入3.6.2版本。-->
+    <dependency>
+      <groupId>org.apache.zookeeper</groupId>
+      <artifactId>zookeeper</artifactId>
+      <version>3.6.2</version>
     </dependency>
 
 
