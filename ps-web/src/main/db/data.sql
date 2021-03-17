@@ -5,6 +5,7 @@ create table if not exists post(
     ID int primary key auto_increment,
     CONTENT varchar(5000) not null ,
 
+    STATE varchar(20) not null ,
     CREATE_DATETIME datetime not null default now(),
     UPDATE_DATETIME datetime on update now()
 );
@@ -15,6 +16,7 @@ create table if not exists answer(
 
     CONTENT varchar(5000) not null ,
 
+    STATE varchar(20) not null ,
     CREATE_DATETIME datetime not null default now(),
     UPDATE_DATETIME datetime on update now()
 );
@@ -27,6 +29,7 @@ create table if not exists comment(
 
     CONTENT varchar(5000) not null ,
 
+    STATE varchar(20) not null ,
     CREATE_DATETIME datetime not null default now(),
     UPDATE_DATETIME datetime on update now()
 );
