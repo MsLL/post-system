@@ -30,7 +30,7 @@ public class RedisAutoConfiguration {
         return new LettuceConnectionFactory(redisProperties.getHost(), redisProperties.getPort());
     }
 
-    //see https://developer.ibm.com/zh/articles/know-redis-and-use-it-in-springboot-projects/
+    //NOTE-UPUP 2021/3/18 上午12:04 : see https://developer.ibm.com/zh/articles/know-redis-and-use-it-in-springboot-projects/
 
     @Bean
     @ConditionalOnMissingBean(name = "redisTemplate")

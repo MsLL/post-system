@@ -23,7 +23,7 @@ public class QrCodeResource {
         try {
             byte[] image = QrcodeUtil.generate(content);
 
-            //如果setContentType 在操作OutputStream之后，貌似不work。
+            //NOTE-UPUP 2021/3/18 上午12:04 : 如果setContentType 在操作OutputStream之后，貌似不work。
             response.setContentType("image/png");
             response.getOutputStream().write(image);
             response.getOutputStream().flush();

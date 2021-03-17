@@ -18,7 +18,7 @@ public class DruidDataSourceAutoConfigure {
 
     @Bean(value = "mysqlDataSource",initMethod = "init")
     @ConfigurationProperties("spring.datasource.druid.mysql")
-    //notice ： 按照文档或者copyDruidDataSourceAutoConfigure 类直接返回java.sql.DataSource是起不来的，因为这个类确实没有名叫init的方法。所以这里返回的是一个DruidDataSource
+    //NOTE-UPUP 2021/3/18 上午12:04 : notice ： 按照文档或者copyDruidDataSourceAutoConfigure 类直接返回java.sql.DataSource是起不来的，因为这个类确实没有名叫init的方法。所以这里返回的是一个DruidDataSource
     public DruidDataSource dataSourceOne() {
         return DruidDataSourceBuilder.create().build();
     }

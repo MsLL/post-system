@@ -26,7 +26,7 @@ public class ZookeeperCuratorAutoConfiguration {
             .sessionTimeoutMs(zookeperProperties.getSessionTimeoutMs())
             .retryPolicy(new RetryNTimes(3, 10 * 1000))
             .build();
-        //  要client显式start，不然报：Expected state [STARTED] was [LATENT]
+        //NOTE-UPUP 2021/3/18 上午12:05 :   要client显式start，不然报：Expected state [STARTED] was [LATENT]
         client.start();
         return client;
     }
