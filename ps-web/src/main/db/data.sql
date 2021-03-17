@@ -5,8 +5,8 @@ create table if not exists post(
     ID int primary key auto_increment,
     CONTENT varchar(5000) not null ,
 
-    CREATE_DATETIME datetime not null ,
-    UPDATE_DATETIME datetime on update now() not null
+    CREATE_DATETIME datetime not null default now(),
+    UPDATE_DATETIME datetime on update now()
 );
 
 create table if not exists answer(
@@ -15,8 +15,8 @@ create table if not exists answer(
 
     CONTENT varchar(5000) not null ,
 
-    CREATE_DATETIME datetime not null ,
-    UPDATE_DATETIME datetime on update now() not null
+    CREATE_DATETIME datetime not null default now(),
+    UPDATE_DATETIME datetime on update now()
 );
 
 create table if not exists comment(
@@ -27,8 +27,8 @@ create table if not exists comment(
 
     CONTENT varchar(5000) not null ,
 
-    CREATE_DATETIME datetime not null ,
-    UPDATE_DATETIME datetime on update now() not null
+    CREATE_DATETIME datetime not null default now(),
+    UPDATE_DATETIME datetime on update now()
 );
 
 -- user design
@@ -39,7 +39,7 @@ create table if not exists user(
     BIRTHDAY DATETIME,
     SALT varchar(20),
     CREATE_DATETIME datetime not null default now(),-- may used as register datetime
-    UPDATE_DATETIME datetime on update now() not null
+    UPDATE_DATETIME datetime on update now()
 );
 insert into user(NAME,SALT,CREATE_DATETIME,UPDATE_DATETIME) values ('A1','tbRXq5',now(),now()),('A2','ByWF8j',now(),now());
 
@@ -49,7 +49,7 @@ create table password_authenticate(
     USER_ID int not null unique ,
     PASSWORD varchar(50) not null,
     CREATE_DATETIME datetime not null default now(),
-    UPDATE_DATETIME datetime on update now() not null default now()
+    UPDATE_DATETIME datetime on update now()
 );
 insert into password_authenticate(USER_ID, PASSWORD) values (1,'c32821ff6a95c21320f0046f495ad9f7'),(2,'c0932f32');
 
@@ -61,7 +61,7 @@ create table oauth_authenticate(
     OAUTH_ACCESS_TOKEN varchar(100) not null ,
     OAUTH_EXPIRES DATETIME,
     CREATE_DATETIME datetime not null default now(),
-    UPDATE_DATETIME datetime on update now() not null default now()
+    UPDATE_DATETIME datetime on update now()
 );
 insert into oauth_authenticate(user_id, oauth_name, oauth_id, oauth_access_token, oauth_expires)
 values (1,'weibo','wb-012345','xxxxxxx',now()),
@@ -74,7 +74,7 @@ create table apikey_apisecret_authenticate(
     API_KEY varchar(100) not null ,
     API_SECRET varchar(100) not null,
     CREATE_DATETIME datetime not null default now(),
-    UPDATE_DATETIME datetime on update now() not null default now()
+    UPDATE_DATETIME datetime on update now()
 );
 insert into apikey_apisecret_authenticate(user_id, api_key, api_secret)
 VALUES (1,'a-012345','xxxxxxxx'),
