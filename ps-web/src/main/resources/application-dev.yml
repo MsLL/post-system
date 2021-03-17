@@ -9,9 +9,6 @@ spring:
         initial-size: 5
         max-active: 20
 mybatis:
-  #todo 把mapper.xml文件和dao放在一起，配置maven插件，打包的时候自动把mapper文件移动到resource/mybatis/mapper目录下
-  #mapper.xml文件在类路径下的位置
-  mapper-locations: classpath:mybatis/mapper/*.xml
   # mybatis log打印到标准输出，看该类实现，所以level 级别的日志实现都是往标准输出打
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

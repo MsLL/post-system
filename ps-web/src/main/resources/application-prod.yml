@@ -18,6 +18,3 @@ spring:
 minio:
   host: minioServerHost
 
-mybatis:
-  mapper-locations: classpath:mybatis/mapper/*.xml
-

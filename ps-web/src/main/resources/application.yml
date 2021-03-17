@@ -11,3 +11,8 @@ author:
 #https://stackoverflow.com/a/46775070 fix 关闭应用时，EsAppender#stop没有触发的问题
 logging:
   register-shutdown-hook: true
+
+#todo 把mapper.xml文件和dao放在一起，配置maven插件，打包的时候自动把mapper文件copy一份到resource/mybatis/mapper目录下
+#mapper.xml文件在类路径下的位置
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
