@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.upup.demo.postsystem.ng.answer.dao.AnswerDao">
+<mapper namespace="com.upup.demo.postsystem.ng.post.dao.PostDao">
 
-    <resultMap id="BaseResultMap" type="com.upup.demo.postsystem.ng.answer.entity.Answer">
-        <!--@Table answer-->
+    <resultMap id="BaseResultMap" type="com.upup.demo.postsystem.ng.post.entity.Post">
+        <!--@Table post-->
         <result property="id" column="ID" jdbcType="INTEGER"/>
-        <result property="postId" column="POST_ID" jdbcType="INTEGER"/>
         <result property="content" column="CONTENT" jdbcType="VARCHAR"/>
+        <result property="state" column="STATE" jdbcType="VARCHAR"/>
         <result property="createDatetime" column="CREATE_DATETIME" jdbcType="TIMESTAMP"/>
         <result property="updateDatetime" column="UPDATE_DATETIME" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <!--查询单个-->
-    <select id="queryById" resultMap="BaseResultMap">
+    <select id="findById" resultMap="BaseResultMap">
         select
-          ID, POST_ID, CONTENT, CREATE_DATETIME, UPDATE_DATETIME
-        from post.answer
+          ID, CONTENT, STATE, CREATE_DATETIME, UPDATE_DATETIME
+        from post.post
         where ID = #{id}
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
         select
-          ID, POST_ID, CONTENT, CREATE_DATETIME, UPDATE_DATETIME
-        from post.answer
+          ID, CONTENT, STATE, CREATE_DATETIME, UPDATE_DATETIME
+        from post.post
         limit #{offset}, #{limit}
     </select>
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BaseResultMap">
         select
-          ID, POST_ID, CONTENT, CREATE_DATETIME, UPDATE_DATETIME
-        from post.answer
+          ID, CONTENT, STATE, CREATE_DATETIME, UPDATE_DATETIME
+        from post.post
         <where>
             <if test="id != null">
                 and ID = #{id}
             </if>
-            <if test="postId != null">
-                and POST_ID = #{postId}
-            </if>
             <if test="content != null and content != ''">
                 and CONTENT = #{content}
+            </if>
+            <if test="state != null and state != ''">
+                and STATE = #{state}
             </if>
             <if test="createDatetime != null">
                 and CREATE_DATETIME = #{createDatetime}
@@ -53,19 +53,19 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into post.answer(POST_ID, CONTENT, CREATE_DATETIME, UPDATE_DATETIME)
-        values (#{postId}, #{content}, #{createDatetime}, #{updateDatetime})
+        insert into post.post(CONTENT, STATE, CREATE_DATETIME, UPDATE_DATETIME)
+        values (#{content}, #{state}, #{createDatetime}, #{updateDatetime})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update post.answer
+        update post.post
         <set>
-            <if test="postId != null">
-                POST_ID = #{postId},
-            </if>
             <if test="content != null and content != ''">
                 CONTENT = #{content},
+            </if>
+            <if test="state != null and state != ''">
+                STATE = #{state},
             </if>
             <if test="createDatetime != null">
                 CREATE_DATETIME = #{createDatetime},
@@ -79,7 +79,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from post.answer where ID = #{id}
+        delete from post.post where ID = #{id}
     </delete>
 
 </mapper>
