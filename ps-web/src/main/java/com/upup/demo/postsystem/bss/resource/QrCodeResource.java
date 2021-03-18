@@ -1,4 +1,4 @@
-package com.upup.demo.postsystem.bss.qrcode;
+package com.upup.demo.postsystem.bss.resource;
 
 import com.upup.demo.postsystem.bss.qrcode.QrcodeUtil;
 import org.springframework.stereotype.Controller;
