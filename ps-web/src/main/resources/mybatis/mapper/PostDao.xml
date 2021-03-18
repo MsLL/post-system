@@ -45,30 +45,6 @@
         </if>
     </select>
 
-    <!--通过实体作为筛选条件查询-->
-    <select id="queryAll" resultMap="BaseResultMap">
-        select
-          ID, CONTENT, STATE, CREATE_DATETIME, UPDATE_DATETIME
-        from post.post
-        <where>
-            <if test="id != null">
-                and ID = #{id}
-            </if>
-            <if test="content != null and content != ''">
-                and CONTENT = #{content}
-            </if>
-            <if test="state != null and state != ''">
-                and STATE = #{state}
-            </if>
-            <if test="createDatetime != null">
-                and CREATE_DATETIME = #{createDatetime}
-            </if>
-            <if test="updateDatetime != null">
-                and UPDATE_DATETIME = #{updateDatetime}
-            </if>
-        </where>
-    </select>
-
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into post.post(CONTENT, STATE, CREATE_DATETIME, UPDATE_DATETIME)
@@ -84,12 +60,6 @@
             </if>
             <if test="state != null and state != ''">
                 STATE = #{state},
-            </if>
-            <if test="createDatetime != null">
-                CREATE_DATETIME = #{createDatetime},
-            </if>
-            <if test="updateDatetime != null">
-                UPDATE_DATETIME = #{updateDatetime},
             </if>
         </set>
         where ID = #{id}
