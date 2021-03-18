@@ -3,9 +3,13 @@ package com.upup.demo.postsystem.ng.resource;
 import com.upup.demo.postsystem.enums.DataRowState;
 import com.upup.demo.postsystem.model.ResourceResponseModel;
 import com.upup.demo.postsystem.ng.post.entity.Post;
+import com.upup.demo.postsystem.ng.post.model.PostQueryParam;
 import com.upup.demo.postsystem.ng.post.service.PostService;
+import io.swagger.models.auth.In;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -43,9 +48,30 @@ public class PostResource {
         return ResourceResponseModel.builder().code(200).build();
     }
 
+    /**
+     * query examples:
+     * http://localhost:8080/post
+     * http://localhost:8080/post?state=ACTIVE,ARCHIVED
+     * http://localhost:8080/post?state=ACTIVE,ARCHIVED&limit=1
+     * http://localhost:8080/post?state=ACTIVE,ARCHIVED&limit=1&offset=1
+     */
     @GetMapping
-    public ResourceResponseModel listPost() {
-        List<Post> post = postService.queryAllByLimit(0, Integer.MAX_VALUE);
+    public ResourceResponseModel listPost(
+        @RequestParam(value = "state", required = false) String commaSeperateStateList,
+        @RequestParam(value = "limit", required = false) Integer limit,
+        @RequestParam(value = "offset", required = false) Integer offset
+    ) {
+        PostQueryParam queryParam = new PostQueryParam();
+        if (StringUtils.isNotBlank(commaSeperateStateList)) {
+            queryParam.setStates(Arrays.asList(commaSeperateStateList.split(",")));
+        }
+        if (limit != null) {
+            queryParam.setLimit(limit);
+        }
+        if (offset != null) {
+            queryParam.setOffset(offset);
+        }
+        List<Post> post = postService.list(queryParam);
         return ResourceResponseModel.builder().code(200).data(post).build();
     }
 

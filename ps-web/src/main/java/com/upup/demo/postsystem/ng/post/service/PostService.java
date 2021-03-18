@@ -1,6 +1,7 @@
 package com.upup.demo.postsystem.ng.post.service;
 
 import com.upup.demo.postsystem.ng.post.entity.Post;
+import com.upup.demo.postsystem.ng.post.model.PostQueryParam;
 import java.util.List;
 
 /**
@@ -22,11 +23,9 @@ public interface PostService {
     /**
      * 查询多条数据
      *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
+     * @param param@return 对象列表
      */
-    List<Post> queryAllByLimit(int offset, int limit);
+    List<Post> list(PostQueryParam param);
 
     /**
      * 新增数据
@@ -51,5 +50,4 @@ public interface PostService {
      * @return 是否成功
      */
     boolean deleteById(Integer id);
-
 }

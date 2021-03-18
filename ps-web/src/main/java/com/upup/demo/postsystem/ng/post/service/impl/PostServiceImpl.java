@@ -2,6 +2,7 @@ package com.upup.demo.postsystem.ng.post.service.impl;
 
 import com.upup.demo.postsystem.ng.post.entity.Post;
 import com.upup.demo.postsystem.ng.post.dao.PostDao;
+import com.upup.demo.postsystem.ng.post.model.PostQueryParam;
 import com.upup.demo.postsystem.ng.post.service.PostService;
 import org.springframework.stereotype.Service;
 
@@ -31,15 +32,13 @@ public class PostServiceImpl implements PostService {
     }
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
+     * 查询指定行数据
+     * @param param 查询参数对象
      * @return 对象列表
      */
     @Override
-    public List<Post> queryAllByLimit(int offset, int limit) {
-        return this.postDao.queryAllByLimit(offset, limit);
+    public List<Post> list(PostQueryParam param) {
+        return this.postDao.list(param);
     }
 
     /**

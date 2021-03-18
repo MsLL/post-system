@@ -20,11 +20,29 @@
     </select>
 
     <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="BaseResultMap">
+    <select id="list" resultMap="BaseResultMap">
         select
-          ID, CONTENT, STATE, CREATE_DATETIME, UPDATE_DATETIME
+        ID, CONTENT, STATE, CREATE_DATETIME, UPDATE_DATETIME
         from post.post
-        limit #{offset}, #{limit}
+        <where>
+            <choose>
+                <when test="states !=null">
+                    and STATE in
+                    <foreach collection="states" item="state" index="index" open="(" separator="," close=")">
+                        #{state}
+                    </foreach>
+                </when>
+                <otherwise>
+                    and STATE != 'ARCHIVED'
+                </otherwise>
+            </choose>
+        </where>
+        <if test="limit != null">
+            limit #{limit}
+        </if>
+        <if test="offset != null">
+            offset #{offset}
+        </if>
     </select>
 
     <!--通过实体作为筛选条件查询-->

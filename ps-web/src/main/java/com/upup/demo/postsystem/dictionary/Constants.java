@@ -16,5 +16,7 @@ public class Constants {
 
     public static final String ES_LOG_PREFIX="post-system-log-";
 
+    public static final int MAX_QUERY_BATCH = 1000;
+
 
 }

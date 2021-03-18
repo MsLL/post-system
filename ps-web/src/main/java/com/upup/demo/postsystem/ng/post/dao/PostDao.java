@@ -1,6 +1,7 @@
 package com.upup.demo.postsystem.ng.post.dao;
 
 import com.upup.demo.postsystem.ng.post.entity.Post;
+import com.upup.demo.postsystem.ng.post.model.PostQueryParam;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -20,14 +21,13 @@ public interface PostDao {
      */
     Post findById(Integer id);
 
+
     /**
      * 查询指定行数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param param 查询参数对象
      * @return 对象列表
      */
-    List<Post> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<Post> list(PostQueryParam param);
 
 
     /**

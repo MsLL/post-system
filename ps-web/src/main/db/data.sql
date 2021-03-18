@@ -9,6 +9,9 @@ create table if not exists post(
     CREATE_DATETIME datetime not null default now(),
     UPDATE_DATETIME datetime on update now()
 );
+insert into post(CONTENT,STATE)
+    values ('Apisex Wwa is on Facebook. Join Facebook to connect with Apisex Wwa and others you may know. Facebook gives people the power to share and makes the ...','ARCHIVED'),
+           ('Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software.','ACTIVE');
 
 create table if not exists answer(
     ID int primary key auto_increment ,
