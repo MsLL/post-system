@@ -8,7 +8,7 @@
         <encoder>
             <!--转换词conversions words: http://logback.qos.ch/manual/layouts.html-->
             <!--日期时间 线程名 日志级别 logger名(LoggerFactory.getLogger时传递的logger名) 日志消息 换行符-->
-            <pattern>%d %thread %level %logger: %message %n</pattern>
+            <pattern>%clr(%d{yyyy-MM-dd HH:mm:ss}){faint} %clr(%thread){magenta} %clr(%level) %logger: %message %n</pattern>
         </encoder>
     </appender>
     
