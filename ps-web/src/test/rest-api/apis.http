@@ -1,6 +1,18 @@
 //post resource
 GET http://localhost:8080/post/ping
 
+###
+GET  http://localhost:8080/post
+
+###
+GET http://localhost:8080/post?state=ACTIVE,ARCHIVED
+
+###
+GET http://localhost:8080/post?state=ACTIVE,ARCHIVED&limit=1
+
+###
+GET http://localhost:8080/post?state=ACTIVE,ARCHIVED&limit=1&offset=1
+
 
 
 //answer resource
