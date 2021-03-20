@@ -13,6 +13,8 @@ public class Post implements Serializable {
     private static final long serialVersionUID = 967394308255397300L;
     
     private Integer id;
+
+    private Integer userId;
     
     private String content;
     
@@ -63,4 +65,11 @@ public class Post implements Serializable {
         this.updateDatetime = updateDatetime;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 }

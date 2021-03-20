@@ -3,18 +3,20 @@ use post;
 -- CORR DESIGN
 create table if not exists post(
     ID int primary key auto_increment,
+    USER_ID int not null,
     CONTENT varchar(5000) not null ,
 
     STATE varchar(20) not null ,
     CREATE_DATETIME datetime not null default now(),
     UPDATE_DATETIME datetime on update now()
 );
-insert into post(CONTENT,STATE)
-    values ('Apisex Wwa is on Facebook. Join Facebook to connect with Apisex Wwa and others you may know. Facebook gives people the power to share and makes the ...','ARCHIVED'),
-           ('Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software.','ACTIVE');
+insert into post(USER_ID,CONTENT,STATE)
+    values (1,'Apisex Wwa is on Facebook. Join Facebook to connect with Apisex Wwa and others you may know. Facebook gives people the power to share and makes the ...','ARCHIVED'),
+           (2,'Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software.','ACTIVE');
 
 create table if not exists answer(
     ID int primary key auto_increment ,
+    USER_ID int not null,
     POST_ID int not null ,
 
     CONTENT varchar(5000) not null ,
@@ -29,6 +31,7 @@ create table if not exists comment(
     PARENT_ID int,
     ROOT int not null ,
     ANSWER_ID int,
+    USER_ID int not null,
 
     CONTENT varchar(5000) not null ,
 

@@ -1,7 +1,6 @@
 package com.upup.demo.postsystem.ng.post.model;
 
-import com.upup.demo.postsystem.dictionary.Constants;
-import java.util.Date;
+import com.upup.demo.postsystem.model.BaseQueryParam;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,32 +13,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PostQueryParam {
+public class PostQueryParam extends BaseQueryParam {
+
+    Integer userId;
 
     List<String> states;
-
-    /**
-     * if null,means no offset
-     */
-    Integer offset;
-
-    /**
-     * default limit 1000。if null means no limit
-     */
-    Integer limit = Constants.MAX_QUERY_BATCH;
-
-    public void setLimit(int limit) {
-        limit = Math.min(limit, Constants.MAX_QUERY_BATCH);
-        this.limit = limit;
-    }
-
-    /**
-     * here createDate means >= val
-     */
-    Date createDate;
-
-    /**
-     * here updateDate means >= val
-     */
-    Date updateDate;
 }

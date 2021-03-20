@@ -58,6 +58,8 @@ public class PostResource {
      */
     @GetMapping
     public ResourceResponseModel listPost(
+
+        @RequestParam(value = "userId", required = false) Integer userId,
         @RequestParam(value = "state", required = false) String commaSeperateStateList,
         @RequestParam(value = "limit", required = false) Integer limit,
         @RequestParam(value = "offset", required = false) Integer offset,
@@ -68,6 +70,9 @@ public class PostResource {
 
     ) {
         PostQueryParam queryParam = new PostQueryParam();
+        if(userId!=null){
+            queryParam.setUserId(userId);
+        }
         if (StringUtils.isNotBlank(commaSeperateStateList)) {
             queryParam.setStates(Arrays.asList(commaSeperateStateList.split(",")));
         }
