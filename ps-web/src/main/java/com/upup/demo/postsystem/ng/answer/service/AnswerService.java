@@ -1,5 +1,6 @@
 package com.upup.demo.postsystem.ng.answer.service;
 
+import com.upup.demo.postsystem.ng.answer.AnswerQueryParam;
 import com.upup.demo.postsystem.ng.answer.entity.Answer;
 import java.util.List;
 
@@ -17,16 +18,15 @@ public interface AnswerService {
      * @param id 主键
      * @return 实例对象
      */
-    Answer queryById(Integer id);
+    Answer findById(Integer id);
 
     /**
      * 查询多条数据
      *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
+     *
+     * @param queryParam@return 对象列表
      */
-    List<Answer> queryAllByLimit(int offset, int limit);
+    List<Answer> list(AnswerQueryParam queryParam);
 
     /**
      * 新增数据

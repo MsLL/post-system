@@ -12,8 +12,8 @@ create table if not exists post(
 );
 insert into post(USER_ID,CONTENT,STATE)
     values (1,'Apisex Wwa is on Facebook. Join Facebook to connect with Apisex Wwa and others you may know. Facebook gives people the power to share and makes the ...','ARCHIVED'),
-           (2,'Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software.','ACTIVE');
-
+           (2,'Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software.','ACTIVE'),
+           (3,'Simplify API development for users, teams, and enterprises with our open source and professional toolset. Find out how Swagger can help you and get started ...','ACTIVE');
 create table if not exists answer(
     ID int primary key auto_increment ,
     USER_ID int not null,
@@ -25,13 +25,15 @@ create table if not exists answer(
     CREATE_DATETIME datetime not null default now(),
     UPDATE_DATETIME datetime on update now()
 );
+insert into answer(USER_ID, POST_ID, CONTENT, STATE)
+    values (1,1,'aaa','ACTIVE');
 
 create table if not exists comment(
     ID int primary key auto_increment,
+    USER_ID int not null,
     PARENT_ID int,
     ROOT int not null ,
     ANSWER_ID int,
-    USER_ID int not null,
 
     CONTENT varchar(5000) not null ,
 

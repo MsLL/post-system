@@ -19,6 +19,14 @@ GET http://localhost:8080/post?state=ACTIVE,ARCHIVED&limit=1&offset=1
 ###
 GET http://localhost:8080/answer/ping
 
+###
+http://localhost:8080/answer
+###
+http://localhost:8080/answer?userId=1
+###
+http://localhost:8080/answer?postId=1
+
+
 
 //comment resource
 ###

@@ -7,16 +7,20 @@ import java.io.Serializable;
  * (Answer)实体类
  *
  * @author generate by easycode
- * @since 2021-01-31 23:44:28
+ * @since 2021-03-17 23:31:49
  */
 public class Answer implements Serializable {
-    private static final long serialVersionUID = 767275426812629533L;
+    private static final long serialVersionUID = 910168898835404852L;
     
     private Integer id;
+
+    private Integer userId;
     
     private Integer postId;
     
     private String content;
+    
+    private String state;
     
     private Date createDatetime;
     
@@ -47,6 +51,14 @@ public class Answer implements Serializable {
         this.content = content;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public Date getCreateDatetime() {
         return createDatetime;
     }
@@ -63,4 +75,11 @@ public class Answer implements Serializable {
         this.updateDatetime = updateDatetime;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 }

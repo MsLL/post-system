@@ -1,5 +1,6 @@
 package com.upup.demo.postsystem.ng.answer.service.impl;
 
+import com.upup.demo.postsystem.ng.answer.AnswerQueryParam;
 import com.upup.demo.postsystem.ng.answer.entity.Answer;
 import com.upup.demo.postsystem.ng.answer.dao.AnswerDao;
 import com.upup.demo.postsystem.ng.answer.service.AnswerService;
@@ -26,20 +27,19 @@ public class AnswerServiceImpl implements AnswerService {
      * @return 实例对象
      */
     @Override
-    public Answer queryById(Integer id) {
-        return this.answerDao.queryById(id);
+    public Answer findById(Integer id) {
+        return this.answerDao.findById(id);
     }
 
     /**
      * 查询多条数据
      *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
+     *
+     * @param queryParam@return 对象列表
      */
     @Override
-    public List<Answer> queryAllByLimit(int offset, int limit) {
-        return this.answerDao.queryAllByLimit(offset, limit);
+    public List<Answer> list(AnswerQueryParam queryParam) {
+        return this.answerDao.list(queryParam);
     }
 
     /**
@@ -63,7 +63,7 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public Answer update(Answer answer) {
         this.answerDao.update(answer);
-        return this.queryById(answer.getId());
+        return this.findById(answer.getId());
     }
 
     /**
