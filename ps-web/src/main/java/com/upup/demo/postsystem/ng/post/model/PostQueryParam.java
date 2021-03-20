@@ -1,6 +1,7 @@
 package com.upup.demo.postsystem.ng.post.model;
 
 import com.upup.demo.postsystem.dictionary.Constants;
+import java.util.Date;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,4 +32,14 @@ public class PostQueryParam {
         limit = Math.min(limit, Constants.MAX_QUERY_BATCH);
         this.limit = limit;
     }
+
+    /**
+     * here createDate means >= val
+     */
+    Date createDate;
+
+    /**
+     * here updateDate means >= val
+     */
+    Date updateDate;
 }

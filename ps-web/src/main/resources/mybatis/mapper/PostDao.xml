@@ -36,6 +36,12 @@
                     and STATE != 'ARCHIVED'
                 </otherwise>
             </choose>
+            <if test="createDate !=null">
+                and CREATE_DATETIME >= #{createDate}
+            </if>
+            <if test="updateDate !=null">
+                and UPDATE_DATETIME >= #{updateDate}
+            </if>
         </where>
         <if test="limit != null">
             limit #{limit}

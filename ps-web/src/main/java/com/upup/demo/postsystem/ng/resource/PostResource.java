@@ -5,7 +5,6 @@ import com.upup.demo.postsystem.model.ResourceResponseModel;
 import com.upup.demo.postsystem.ng.post.entity.Post;
 import com.upup.demo.postsystem.ng.post.model.PostQueryParam;
 import com.upup.demo.postsystem.ng.post.service.PostService;
-import io.swagger.models.auth.In;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -54,12 +53,19 @@ public class PostResource {
      * http://localhost:8080/post?state=ACTIVE,ARCHIVED
      * http://localhost:8080/post?state=ACTIVE,ARCHIVED&limit=1
      * http://localhost:8080/post?state=ACTIVE,ARCHIVED&limit=1&offset=1
+     *
+     * 如果时间参数不符合expect,依次检查数据库服务时区、连接uri时区、mapper文件的java->jdbctype数据类型映射。
      */
     @GetMapping
     public ResourceResponseModel listPost(
         @RequestParam(value = "state", required = false) String commaSeperateStateList,
         @RequestParam(value = "limit", required = false) Integer limit,
-        @RequestParam(value = "offset", required = false) Integer offset
+        @RequestParam(value = "offset", required = false) Integer offset,
+        //NOTE-UPUP 2021/3/20 下午7:13 : fix Unable to convert String to Date. https://stackoverflow.com/questions/25646564/unable-to-convert-string-to-date-by-requestbody-in-spring 或者直接用String接收，再手转。
+        //@RequestParam(value = "createDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date createDate,   不用上面这种方式了，通过对WebMvcConfig#addFormatters最application级别的处理。
+        @RequestParam(value = "createDate", required = false) Date createDate,
+        @RequestParam(value = "updateDate", required = false) Date updateDate
+
     ) {
         PostQueryParam queryParam = new PostQueryParam();
         if (StringUtils.isNotBlank(commaSeperateStateList)) {
@@ -70,6 +76,12 @@ public class PostResource {
         }
         if (offset != null) {
             queryParam.setOffset(offset);
+        }
+        if (createDate != null) {
+            queryParam.setCreateDate(createDate);
+        }
+        if (updateDate != null) {
+            queryParam.setUpdateDate(updateDate);
         }
         List<Post> post = postService.list(queryParam);
         return ResourceResponseModel.builder().code(200).data(post).build();
