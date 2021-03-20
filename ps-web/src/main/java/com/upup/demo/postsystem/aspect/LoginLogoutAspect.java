@@ -28,8 +28,8 @@ public class LoginLogoutAspect {
     private Logger logger = LoggerFactory.getLogger(LoginLogoutAspect.class);
     ThreadLocal<LoginLogoutModel> threadLocal = new ThreadLocal<>();
 
-    @Pointcut("execution(public * com.upup.demo.postsystem.bss.user.UserResource.login(..))"
-        + "|| execution(public * com.upup.demo.postsystem.bss.user.UserResource.logout(..))")
+    @Pointcut("execution(public * com.upup.demo.postsystem.bss.resource.UserResource.login(..))"
+        + "|| execution(public * com.upup.demo.postsystem.bss.resource.UserResource.logout(..))")
     public void pointCuts() {
     }
 
