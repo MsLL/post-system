@@ -23,7 +23,7 @@ class AnswerServiceImplTest {
 
     @Test
     public void test0(){
-        Answer answer=answerService.queryById(1);
+        Answer answer=answerService.findById(1);
         System.out.println(gson.toJson(answer));
     }
 }

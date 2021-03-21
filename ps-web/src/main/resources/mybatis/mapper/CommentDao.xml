@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.upup.demo.postsystem.ng.comment.dao.CommentDao">
+
+    <resultMap id="BaseResultMap" type="com.upup.demo.postsystem.ng.comment.entity.Comment">
+        <!--@Table comment-->
+        <result property="id" column="ID" jdbcType="INTEGER"/>
+        <result property="userId" column="USER_ID" jdbcType="INTEGER"/>
+        <result property="parentId" column="PARENT_ID" jdbcType="INTEGER"/>
+        <result property="root" column="ROOT" jdbcType="INTEGER"/>
+        <result property="answerId" column="ANSWER_ID" jdbcType="INTEGER"/>
+        <result property="content" column="CONTENT" jdbcType="VARCHAR"/>
+        <result property="state" column="STATE" jdbcType="VARCHAR"/>
+        <result property="createDatetime" column="CREATE_DATETIME" jdbcType="TIMESTAMP"/>
+        <result property="updateDatetime" column="UPDATE_DATETIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="findById" resultMap="BaseResultMap">
+        select
+          ID, USER_ID, PARENT_ID, ROOT, ANSWER_ID, CONTENT, STATE, CREATE_DATETIME, UPDATE_DATETIME
+        from post.comment
+        where ID = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="list" resultMap="BaseResultMap">
+        select
+          ID, USER_ID, PARENT_ID, ROOT, ANSWER_ID, CONTENT, STATE, CREATE_DATETIME, UPDATE_DATETIME
+        from post.comment
+        <where>
+            <if test="rootId !=null">
+                and ROOT= #{rootId}
+            </if>
+            <if test="answerId !=null">
+                and ANSWER_ID = #{answerId}
+            </if>
+            <if test="userId !=null">
+                and USER_ID = #{userId}
+            </if>
+            <if test="parentId !=null">
+                and PARENT_ID = #{parentId}
+            </if>
+            <choose>
+                <when test="states !=null">
+                    and STATE in
+                    <foreach collection="states" item="state" index="index" open="(" separator="," close=")">
+                        #{state}
+                    </foreach>
+                </when>
+                <otherwise>
+                    and STATE != 'ARCHIVED'
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into post.comment(USER_ID, PARENT_ID, ROOT, ANSWER_ID, CONTENT, STATE, CREATE_DATETIME, UPDATE_DATETIME)
+        values (#{userId}, #{parentId}, #{root}, #{answerId}, #{content}, #{state}, #{createDatetime}, #{updateDatetime})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update post.comment
+        <set>
+            <if test="content != null and content != ''">
+                CONTENT = #{content},
+            </if>
+            <if test="state != null and state != ''">
+                STATE = #{state},
+            </if>
+        </set>
+        where ID = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from post.comment where ID = #{id}
+    </delete>
+
+</mapper>

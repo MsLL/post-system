@@ -31,6 +31,16 @@ http://localhost:8080/answer?postId=1
 //comment resource
 ###
 GET http://localhost:8080/comment/ping
+###
+http://localhost:8080/comment
+###
+http://localhost:8080/comment/1
+###
+http://localhost:8080/comment?answerId=1
+###
+http://localhost:8080/comment?answerId=1&state=ACTIVE,ARCHIVED
+###
+http://localhost:8080/comment?state=ACTIVE,ARCHIVED
 
 
 //user resource  notice:请求体与请求头加个空行隔开，这样http client tool才能正确解析
