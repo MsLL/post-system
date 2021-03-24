@@ -68,7 +68,50 @@ pser: 8f6d676e8e8dc10640d3cda7a313f64a5b057684e8f142bda002a9b495129e9e221930a69b
 ###
 
 
+//wesocket resource
+###
+POST http://localhost:8080/websocket
 
+{
+    "title": {
+        "text": "第一个 ECharts 实例"
+    },
+    "tooltip": { },
+    "legend": {
+        "data": [
+            "销量"
+        ]
+    },
+    "xAxis": {
+        "data": [
+            "衬衫",
+            "羊毛衫",
+            "雪纺衫",
+            "裤子",
+            "高跟鞋",
+            "袜子"
+        ]
+    },
+    "yAxis": { },
+    "series": [
+        {
+            "name": "销量",
+            "type": "bar",
+            "data": [
+                5,
+                20,
+                36,
+                10,
+                10,
+                20
+            ]
+        }
+    ]
+}
+
+
+
+###
 //triger exception  login api only support POST
 GET http://localhost:8080/user/login
 ###
