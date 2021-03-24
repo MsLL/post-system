@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "netty-socket-io")
 @Getter
 @Setter
-public class NettySocketIOProperties {
+public class SocketIOProperties {
     /**
      * socket端口
      */

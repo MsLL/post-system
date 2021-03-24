@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>Echarts Demo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <!--netty-socket-io(目前最新1.7.18)与客户端有版本兼容问题，用高版本的socket.io.js可能不work。-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.8.0/echarts.common.js" charset="utf-8"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #message-tip-pane {
+            height: 100px;
+            overflow: auto;
+        }
+
+        .connect-msg-style {
+            color: green;
+        }
+
+        .receive-msg-style {
+            color: blueviolet
+        }
+
+        .disconnect-msg-style {
+            color: red;
+        }
+
+        .time {
+            margin-right: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Netty-socketio Demo Chat</h1>
+    <br />
+    <div>
+        <div id="message-tip-pane" class="well"></div>
+        <div id="pic-content" style="width:860px; height:470px;"></div>
+        <form class="well form-inline" onsubmit="return false;">
+            <button type="button" onClick="sendDisconnect()" class="btn">Disconnect</button>
+        </form>
+    </div>
+
+    <script>
+        var chart;
+        var socket;
+
+        function initEChart() {
+            chart = echarts.init(document.getElementById('pic-content'));
+        }
+
+        function initWebSocket() {
+            socket = io.connect('ws://localhost:9076');
+            socket.on('connect', function () {
+                console.log('connect successful');
+                appendTipToPane('connect-msg-style', 'Client has connected to the server!');
+            });
+            socket.on('notify', function (message) {
+                console.log('receive message from server: %o', message);
+                appendTipToPane('receive-msg-style', 'receive message from server, data is show as follow chart:');
+                var msg = JSON.parse(message);
+                chart.setOption(JSON.parse(msg.content));
+            });
+            socket.on('disconnect', function () {
+                console.log('disconnect successful');
+                appendTipToPane('disconnect-msg-style', 'The client has disconnected!');
+            });
+        }
+
+        function sendDisconnect() {
+            socket.disconnect();
+        }
+
+        function appendTipToPane(msgCssClass, message) {
+            var currentTime = "<span class='time'>" + moment().format('YYYY-MM-DD HH:mm:ss.SSS') + "</span>";
+            var element = $(`<div>${currentTime}<span class=${msgCssClass}>${message}</span></div>`);
+            $('#message-tip-pane').append(element);
+        }
+
+
+        $(function () {
+            initEChart();
+            initWebSocket();
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -21,16 +21,16 @@ import org.springframework.core.annotation.Order;
  * @since 2018/1/19
  */
 @Configuration
-@EnableConfigurationProperties(NettySocketIOProperties.class)
-public class NettySocketIOAutoConfiguration {
+@EnableConfigurationProperties(SocketIOProperties.class)
+public class SocketIOAutoConfiguration {
 
     @Resource
-    private NettySocketIOProperties nettySocketIOProperties;
+    private SocketIOProperties socketIOProperties;
 
     @Resource
     private SocketIOService socketIOService;
 
-    private static final Logger logger = LoggerFactory.getLogger(NettySocketIOAutoConfiguration.class);
+    private static final Logger logger = LoggerFactory.getLogger(SocketIOAutoConfiguration.class);
 
     @Bean
     public SocketIOServer socketIOServer() {
@@ -38,13 +38,13 @@ public class NettySocketIOAutoConfiguration {
          * 创建Socket，并设置监听端口
          */
         com.corundumstudio.socketio.Configuration config = new com.corundumstudio.socketio.Configuration();
-        config.setPort(nettySocketIOProperties.getServerSocketPort());
+        config.setPort(socketIOProperties.getServerSocketPort());
         // 协议升级超时时间（毫秒），默认10000。HTTP握手升级为ws协议超时时间
         config.setUpgradeTimeout(10 * 1000);
         // Ping消息间隔（毫秒），默认25000。客户端向服务器发送一条心跳消息间隔
-        config.setPingInterval(nettySocketIOProperties.getPingInterval());
+        config.setPingInterval(socketIOProperties.getPingInterval());
         // Ping消息超时时间（毫秒），默认60000，这个时间间隔内没有接收到心跳消息就会发送超时事件
-        config.setPingTimeout(nettySocketIOProperties.getPingTimeout());
+        config.setPingTimeout(socketIOProperties.getPingTimeout());
         return new SocketIOServer(config);
     }
 
@@ -82,7 +82,6 @@ class SocketIOServerRunner implements CommandLineRunner, DisposableBean {
         logger.info("Start SocketIO server");
         socketIOServer.start();
         logger.info("Start SocketIO success");
-        logger.info("点击打开首页: http://localhost:9075");
     }
 
     @Override
