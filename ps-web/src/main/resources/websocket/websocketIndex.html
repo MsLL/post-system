@@ -68,7 +68,8 @@
                 console.log('receive message from server: %o', message);
                 appendTipToPane('receive-msg-style', 'receive message from server, data is show as follow chart:');
                 var msg = JSON.parse(message);
-                chart.setOption(JSON.parse(msg.content));
+                // fix 数据merge问题：https://blog.csdn.net/mrhaoxiaojun/article/details/96491327
+                chart.setOption(JSON.parse(msg.content),true);
             });
             socket.on('disconnect', function () {
                 console.log('disconnect successful');
