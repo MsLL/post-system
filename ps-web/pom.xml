@@ -158,7 +158,12 @@
       <version>3.6.2</version>
     </dependency>
 
-
+    <!--基于netty的socket.io java server端实现-->
+    <dependency>
+      <groupId>com.corundumstudio.socketio</groupId>
+      <artifactId>netty-socketio</artifactId>
+      <version>1.7.18</version>
+    </dependency>
 
     <!--java发邮件-->
     <dependency>
@@ -194,56 +199,61 @@
       <version>2.9.2</version>
     </dependency>
 
-  </dependencies>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.46</version>
+    </dependency>
+</dependencies>
 
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
+<build>
+<plugins>
+  <plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+  </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.2.0</version>
-        <configuration>
-          <!--https://stackoverflow.com/questions/36501017/maven-resource-filtering-not-working-because-of-spring-boot-dependency-->
-          <delimiters>@*@</delimiters>
-          <resources>
-            <resource>
-              <directory>src/main/resources</directory>
-              <filtering>true</filtering>
-            </resource>
-          </resources>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-resources-plugin</artifactId>
+    <version>3.2.0</version>
+    <configuration>
+      <!--https://stackoverflow.com/questions/36501017/maven-resource-filtering-not-working-because-of-spring-boot-dependency-->
+      <delimiters>@*@</delimiters>
+      <resources>
+        <resource>
+          <directory>src/main/resources</directory>
+          <filtering>true</filtering>
+        </resource>
+      </resources>
+    </configuration>
+  </plugin>
+</plugins>
+</build>
 
-  <profiles>
-    <profile>
-      <id>dev</id>
-      <properties>
-        <profiles.active>dev</profiles.active>
-      </properties>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-    </profile>
-    <profile>
-      <id>pp</id>
-      <properties>
-        <profiles.active>pp</profiles.active>
-      </properties>
-    </profile>
-    <profile>
-      <id>prod</id>
-      <properties>
-        <profiles.active>prod</profiles.active>
-      </properties>
-    </profile>
-  </profiles>
+<profiles>
+<profile>
+  <id>dev</id>
+  <properties>
+    <profiles.active>dev</profiles.active>
+  </properties>
+  <activation>
+    <activeByDefault>true</activeByDefault>
+  </activation>
+</profile>
+<profile>
+  <id>pp</id>
+  <properties>
+    <profiles.active>pp</profiles.active>
+  </properties>
+</profile>
+<profile>
+  <id>prod</id>
+  <properties>
+    <profiles.active>prod</profiles.active>
+  </properties>
+</profile>
+</profiles>
 
-</project>
+    </project>
