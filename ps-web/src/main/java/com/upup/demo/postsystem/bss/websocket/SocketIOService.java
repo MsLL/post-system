@@ -2,7 +2,7 @@ package com.upup.demo.postsystem.bss.websocket;
 
 import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.SocketIOServer;
-import com.upup.demo.postsystem.config.NettySocketIOProperties;
+import com.upup.demo.postsystem.config.SocketIOProperties;
 import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +19,7 @@ public class SocketIOService {
     private String sessionId;
 
     @Autowired
-    private NettySocketIOProperties nettySocketIOProperties;
+    private SocketIOProperties socketIOProperties;
 
     @Autowired
     private SocketIOServer server;
