@@ -1,8 +1,7 @@
 package com.upup.demo.postsystem.ng.comment.dao;
 
-import com.upup.demo.postsystem.ng.comment.entity.Comment;
+import com.upup.demo.postsystem.ng.comment.po.Comment;
 import com.upup.demo.postsystem.ng.comment.model.CommentQueryParam;
-import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**

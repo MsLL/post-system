@@ -41,6 +41,8 @@ create table if not exists comment(
     CREATE_DATETIME datetime not null default now(),
     UPDATE_DATETIME datetime on update now()
 );
+insert into comment(USER_ID, ROOT, ANSWER_ID, CONTENT, STATE)
+values (1,1,1,'cccc','ACTIVE');
 
 -- user design
 create table if not exists user(

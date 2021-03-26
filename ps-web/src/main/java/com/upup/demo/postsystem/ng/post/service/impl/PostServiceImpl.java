@@ -1,6 +1,6 @@
 package com.upup.demo.postsystem.ng.post.service.impl;
 
-import com.upup.demo.postsystem.ng.post.entity.Post;
+import com.upup.demo.postsystem.ng.post.po.Post;
 import com.upup.demo.postsystem.ng.post.dao.PostDao;
 import com.upup.demo.postsystem.ng.post.model.PostQueryParam;
 import com.upup.demo.postsystem.ng.post.service.PostService;

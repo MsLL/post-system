@@ -1,6 +1,5 @@
 package com.upup.demo.postsystem.ng.post.model;
 
-import com.upup.demo.postsystem.ng.post.entity.Post;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

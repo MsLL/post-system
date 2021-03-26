@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.upup.demo.postsystem.ng.comment.dao.CommentDao">
 
-    <resultMap id="BaseResultMap" type="com.upup.demo.postsystem.ng.comment.entity.Comment">
+    <resultMap id="BaseResultMap" type="com.upup.demo.postsystem.ng.comment.po.Comment">
         <!--@Table comment-->
         <result property="id" column="ID" jdbcType="INTEGER"/>
         <result property="userId" column="USER_ID" jdbcType="INTEGER"/>

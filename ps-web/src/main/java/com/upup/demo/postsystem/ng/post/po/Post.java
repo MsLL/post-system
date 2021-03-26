@@ -1,26 +1,20 @@
-package com.upup.demo.postsystem.ng.comment.entity;
+package com.upup.demo.postsystem.ng.post.po;
 
 import java.util.Date;
 import java.io.Serializable;
 
 /**
- * (Comment)实体类
+ * (Post)实体类
  *
  * @author generate by easycode
- * @since 2021-03-21 12:01:59
+ * @since 2021-03-17 23:34:49
  */
-public class Comment implements Serializable {
-    private static final long serialVersionUID = -26956733593909464L;
+public class Post implements Serializable {
+    private static final long serialVersionUID = 967394308255397300L;
     
     private Integer id;
-    
+
     private Integer userId;
-    
-    private Integer parentId;
-    
-    private Integer root;
-    
-    private Integer answerId;
     
     private String content;
     
@@ -37,38 +31,6 @@ public class Comment implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Integer getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
-    }
-
-    public Integer getRoot() {
-        return root;
-    }
-
-    public void setRoot(Integer root) {
-        this.root = root;
-    }
-
-    public Integer getAnswerId() {
-        return answerId;
-    }
-
-    public void setAnswerId(Integer answerId) {
-        this.answerId = answerId;
     }
 
     public String getContent() {
@@ -103,4 +65,11 @@ public class Comment implements Serializable {
         this.updateDatetime = updateDatetime;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 }

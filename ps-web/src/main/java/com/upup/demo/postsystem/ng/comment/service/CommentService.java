@@ -1,6 +1,6 @@
 package com.upup.demo.postsystem.ng.comment.service;
 
-import com.upup.demo.postsystem.ng.comment.entity.Comment;
+import com.upup.demo.postsystem.ng.comment.po.Comment;
 import com.upup.demo.postsystem.ng.comment.model.CommentQueryParam;
 import java.util.List;
 

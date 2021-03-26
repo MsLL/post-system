@@ -1,8 +1,7 @@
 package com.upup.demo.postsystem.ng.post.dao;
 
-import com.upup.demo.postsystem.ng.post.entity.Post;
+import com.upup.demo.postsystem.ng.post.po.Post;
 import com.upup.demo.postsystem.ng.post.model.PostQueryParam;
-import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**

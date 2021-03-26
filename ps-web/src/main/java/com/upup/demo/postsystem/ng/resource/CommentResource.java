@@ -2,20 +2,16 @@ package com.upup.demo.postsystem.ng.resource;
 
 import com.upup.demo.postsystem.enums.DataRowState;
 import com.upup.demo.postsystem.model.ResourceResponseModel;
-import com.upup.demo.postsystem.ng.comment.entity.Comment;
+import com.upup.demo.postsystem.ng.comment.po.Comment;
 import com.upup.demo.postsystem.ng.comment.model.CommentQueryParam;
 import com.upup.demo.postsystem.ng.comment.service.CommentService;
-import com.upup.demo.postsystem.ng.post.service.PostService;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import javafx.geometry.Pos;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
 
 @Controller
 @ResponseBody

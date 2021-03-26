@@ -3,7 +3,7 @@ package com.upup.demo.postsystem.ng.resource;
 import com.upup.demo.postsystem.enums.DataRowState;
 import com.upup.demo.postsystem.model.ResourceResponseModel;
 import com.upup.demo.postsystem.ng.answer.AnswerQueryParam;
-import com.upup.demo.postsystem.ng.answer.entity.Answer;
+import com.upup.demo.postsystem.ng.answer.po.Answer;
 import com.upup.demo.postsystem.ng.answer.service.AnswerService;
 import java.util.Date;
 import java.util.List;

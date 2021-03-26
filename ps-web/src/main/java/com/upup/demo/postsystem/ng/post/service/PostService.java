@@ -1,6 +1,6 @@
 package com.upup.demo.postsystem.ng.post.service;
 
-import com.upup.demo.postsystem.ng.post.entity.Post;
+import com.upup.demo.postsystem.ng.post.po.Post;
 import com.upup.demo.postsystem.ng.post.model.PostQueryParam;
 import java.util.List;
 

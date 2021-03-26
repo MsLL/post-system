@@ -1,20 +1,22 @@
-package com.upup.demo.postsystem.ng.post.entity;
+package com.upup.demo.postsystem.ng.answer.po;
 
 import java.util.Date;
 import java.io.Serializable;
 
 /**
- * (Post)实体类
+ * (Answer)实体类
  *
  * @author generate by easycode
- * @since 2021-03-17 23:34:49
+ * @since 2021-03-17 23:31:49
  */
-public class Post implements Serializable {
-    private static final long serialVersionUID = 967394308255397300L;
+public class Answer implements Serializable {
+    private static final long serialVersionUID = 910168898835404852L;
     
     private Integer id;
 
     private Integer userId;
+    
+    private Integer postId;
     
     private String content;
     
@@ -31,6 +33,14 @@ public class Post implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getPostId() {
+        return postId;
+    }
+
+    public void setPostId(Integer postId) {
+        this.postId = postId;
     }
 
     public String getContent() {
