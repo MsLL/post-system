@@ -2,6 +2,7 @@ package com.upup.demo.postsystem.ng.resource;
 
 import com.upup.demo.postsystem.enums.DataRowState;
 import com.upup.demo.postsystem.model.ResourceResponseModel;
+import com.upup.demo.postsystem.ng.post.model.PostWrapper;
 import com.upup.demo.postsystem.ng.post.po.Post;
 import com.upup.demo.postsystem.ng.post.model.PostQueryParam;
 import com.upup.demo.postsystem.ng.post.service.PostService;
@@ -69,7 +70,7 @@ public class PostResource {
         @RequestParam(value = "updateDate", required = false) Date updateDate
 
     ) {
-        PostQueryParam queryParam = new PostQueryParam();
+        PostQueryParam queryParam = PostQueryParam.builder().build();
         if(userId!=null){
             queryParam.setUserId(userId);
         }
@@ -88,13 +89,13 @@ public class PostResource {
         if (updateDate != null) {
             queryParam.setUpdateDate(updateDate);
         }
-        List<Post> post = postService.list(queryParam);
+        List<PostWrapper> post = postService.list(queryParam);
         return ResourceResponseModel.builder().code(200).data(post).build();
     }
 
     @GetMapping("/{id}")
     public ResourceResponseModel getPostById(@PathVariable("id") int postId) {
-        Post post = postService.findById(postId);
+        PostWrapper post = postService.findById(postId);
         return ResourceResponseModel.builder().code(200).data(post).build();
     }
 

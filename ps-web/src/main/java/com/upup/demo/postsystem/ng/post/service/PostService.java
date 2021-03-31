@@ -1,7 +1,8 @@
 package com.upup.demo.postsystem.ng.post.service;
 
-import com.upup.demo.postsystem.ng.post.po.Post;
+import com.upup.demo.postsystem.ng.post.model.PostWrapper;
 import com.upup.demo.postsystem.ng.post.model.PostQueryParam;
+import com.upup.demo.postsystem.ng.post.po.Post;
 import java.util.List;
 
 /**
@@ -18,14 +19,14 @@ public interface PostService {
      * @param id 主键
      * @return 实例对象
      */
-    Post findById(Integer id);
+    PostWrapper findById(Integer id);
 
     /**
      * 查询多条数据
      *
      * @param param@return 对象列表
      */
-    List<Post> list(PostQueryParam param);
+    List<PostWrapper> list(PostQueryParam param);
 
     /**
      * 新增数据

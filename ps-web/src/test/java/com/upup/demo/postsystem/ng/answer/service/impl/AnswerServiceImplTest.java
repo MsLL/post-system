@@ -1,6 +1,7 @@
 package com.upup.demo.postsystem.ng.answer.service.impl;
 
 import com.google.gson.Gson;
+import com.upup.demo.postsystem.ng.answer.model.AnswerWrapper;
 import com.upup.demo.postsystem.ng.answer.po.Answer;
 import com.upup.demo.postsystem.ng.answer.service.AnswerService;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ class AnswerServiceImplTest {
 
     @Test
     public void test0(){
-        Answer answer=answerService.findById(1);
+        AnswerWrapper answer=answerService.findById(1);
         System.out.println(gson.toJson(answer));
     }
 }

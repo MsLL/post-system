@@ -30,8 +30,11 @@
             <if test="userId !=null">
                 and USER_ID = #{userId}
             </if>
-            <if test="postId !=null">
-                and POST_ID= #{postId}
+            <if test="postIds !=null">
+                and POST_ID in
+                <foreach collection="postIds" item="postId" index="index" open="(" separator="," close=")">
+                    #{postId}
+                </foreach>
             </if>
             <choose>
                 <when test="states !=null">

@@ -32,8 +32,11 @@
             <if test="rootId !=null">
                 and ROOT= #{rootId}
             </if>
-            <if test="answerId !=null">
-                and ANSWER_ID = #{answerId}
+            <if test="answerIds !=null and answerIds.length > 0 ">
+                and ANSWER_ID in
+                <foreach collection="answerIds" item="answerId" index="index" open="(" separator="," close=")">
+                    #{answerId}
+                </foreach>
             </if>
             <if test="userId !=null">
                 and USER_ID = #{userId}

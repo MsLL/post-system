@@ -3,7 +3,9 @@ package com.upup.demo.postsystem.ng.comment.model;
 import com.fasterxml.jackson.databind.ser.Serializers;
 import com.upup.demo.postsystem.model.BaseQueryParam;
 import java.util.List;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -12,9 +14,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@Builder
 public class CommentQueryParam extends BaseQueryParam {
     Integer userId;
-    Integer answerId;
+    int[] answerIds;
     Integer parentId;
     Integer rootId;
     List<String> states;

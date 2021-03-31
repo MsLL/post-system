@@ -1,6 +1,6 @@
 package com.upup.demo.postsystem.ng.answer.dao;
 
-import com.upup.demo.postsystem.ng.answer.AnswerQueryParam;
+import com.upup.demo.postsystem.ng.answer.model.AnswerQueryParam;
 import com.upup.demo.postsystem.ng.answer.po.Answer;
 import java.util.List;
 

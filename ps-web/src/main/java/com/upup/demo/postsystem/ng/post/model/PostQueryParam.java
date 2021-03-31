@@ -2,6 +2,7 @@ package com.upup.demo.postsystem.ng.post.model;
 
 import com.upup.demo.postsystem.model.BaseQueryParam;
 import java.util.List;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +14,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@Builder
 public class PostQueryParam extends BaseQueryParam {
 
     Integer userId;

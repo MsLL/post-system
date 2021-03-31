@@ -1,6 +1,7 @@
 package com.upup.demo.postsystem.ng.answer.service;
 
-import com.upup.demo.postsystem.ng.answer.AnswerQueryParam;
+import com.upup.demo.postsystem.ng.answer.model.AnswerQueryParam;
+import com.upup.demo.postsystem.ng.answer.model.AnswerWrapper;
 import com.upup.demo.postsystem.ng.answer.po.Answer;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface AnswerService {
      * @param id 主键
      * @return 实例对象
      */
-    Answer findById(Integer id);
+    AnswerWrapper findById(Integer id);
 
     /**
      * 查询多条数据
@@ -26,7 +27,7 @@ public interface AnswerService {
      *
      * @param queryParam@return 对象列表
      */
-    List<Answer> list(AnswerQueryParam queryParam);
+    List<AnswerWrapper> list(AnswerQueryParam queryParam);
 
     /**
      * 新增数据

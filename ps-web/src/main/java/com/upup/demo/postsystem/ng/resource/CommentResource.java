@@ -2,6 +2,7 @@ package com.upup.demo.postsystem.ng.resource;
 
 import com.upup.demo.postsystem.enums.DataRowState;
 import com.upup.demo.postsystem.model.ResourceResponseModel;
+import com.upup.demo.postsystem.ng.comment.model.CommentWrapper;
 import com.upup.demo.postsystem.ng.comment.po.Comment;
 import com.upup.demo.postsystem.ng.comment.model.CommentQueryParam;
 import com.upup.demo.postsystem.ng.comment.service.CommentService;
@@ -39,20 +40,20 @@ public class CommentResource {
         @RequestParam(value = "answerId", required = false) Integer answerId,
         @RequestParam(value = "state", required = false) String commaSeperateStateList
     ) {
-        CommentQueryParam queryParam = new CommentQueryParam();
+        CommentQueryParam queryParam = CommentQueryParam.builder().build();
         if (answerId != null) {
-            queryParam.setAnswerId(answerId);
+            queryParam.setAnswerIds(new int[] {answerId});
         }
         if (StringUtils.isNotBlank(commaSeperateStateList)) {
             queryParam.setStates(Arrays.asList(commaSeperateStateList.split(",")));
         }
-        List<Comment> comments = commentService.list(queryParam);
+        List<CommentWrapper> comments = commentService.list(queryParam);
         return ResourceResponseModel.builder().code(200).data(comments).build();
     }
 
     @GetMapping("/{id}")
     public ResourceResponseModel getCommentById(@PathVariable("id") Integer commentId) {
-        Comment comment = commentService.findById(commentId);
+        CommentWrapper comment = commentService.findById(commentId);
         return ResourceResponseModel.builder().code(200).data(comment).build();
     }
 
@@ -65,7 +66,7 @@ public class CommentResource {
 
     @PutMapping("/archive/{id}")
     public ResourceResponseModel archive(@PathVariable("id") Integer commentId) {
-        Comment comment=new Comment();
+        Comment comment = new Comment();
         comment.setId(commentId);
         comment.setState(DataRowState.ARCHIVED.name());
         commentService.update(comment);

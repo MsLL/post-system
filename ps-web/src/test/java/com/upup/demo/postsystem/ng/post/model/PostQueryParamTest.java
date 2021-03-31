@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PostQueryParamTest {
     @Test
     public void test0() {
-        PostQueryParam queryParam = new PostQueryParam();
+        PostQueryParam queryParam =  PostQueryParam.builder().build();
         queryParam.setLimit(9999);
         assertEquals(queryParam.getLimit(), 1000);
 

@@ -1,5 +1,6 @@
 package com.upup.demo.postsystem.ng.comment.service;
 
+import com.upup.demo.postsystem.ng.comment.model.CommentWrapper;
 import com.upup.demo.postsystem.ng.comment.po.Comment;
 import com.upup.demo.postsystem.ng.comment.model.CommentQueryParam;
 import java.util.List;
@@ -18,13 +19,13 @@ public interface CommentService {
      * @param id 主键
      * @return 实例对象
      */
-    Comment findById(Integer id);
+    CommentWrapper findById(Integer id);
 
     /**
      * 查询多条数据
      * @return 对象列表
      */
-    List<Comment> list(CommentQueryParam queryParam);
+    List<CommentWrapper> list(CommentQueryParam queryParam);
 
     /**
      * 新增数据

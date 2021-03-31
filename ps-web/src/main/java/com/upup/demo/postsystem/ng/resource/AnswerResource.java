@@ -2,7 +2,8 @@ package com.upup.demo.postsystem.ng.resource;
 
 import com.upup.demo.postsystem.enums.DataRowState;
 import com.upup.demo.postsystem.model.ResourceResponseModel;
-import com.upup.demo.postsystem.ng.answer.AnswerQueryParam;
+import com.upup.demo.postsystem.ng.answer.model.AnswerQueryParam;
+import com.upup.demo.postsystem.ng.answer.model.AnswerWrapper;
 import com.upup.demo.postsystem.ng.answer.po.Answer;
 import com.upup.demo.postsystem.ng.answer.service.AnswerService;
 import java.util.Date;
@@ -46,7 +47,7 @@ public class AnswerResource {
 
     @GetMapping("/{id}")
     public ResourceResponseModel getAnswerById(@PathVariable("id") int answerId) {
-        Answer answer = answerService.findById(answerId);
+        AnswerWrapper answer = answerService.findById(answerId);
         return ResourceResponseModel.builder().code(200).data(answer).build();
     }
 
@@ -56,10 +57,14 @@ public class AnswerResource {
         @RequestParam(value = "postId", required = false) Integer postId,
         @RequestParam(value = "userId", required = false) Integer userId
     ) {
-        AnswerQueryParam queryParam = new AnswerQueryParam();
-        queryParam.setPostId(postId);
-        queryParam.setUserId(userId);
-        List<Answer> answers = answerService.list(queryParam);
+        AnswerQueryParam queryParam = AnswerQueryParam.builder().build();
+        if (postId != null) {
+            queryParam.setPostIds(new int[] {postId});
+        }
+        if (userId != null) {
+            queryParam.setUserId(userId);
+        }
+        List<AnswerWrapper> answers = answerService.list(queryParam);
         return ResourceResponseModel.builder().code(200).data(answers).build();
     }
 

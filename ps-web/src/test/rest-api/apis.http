@@ -5,6 +5,9 @@ GET http://localhost:8080/post/ping
 GET  http://localhost:8080/post
 
 ###
+GET  http://localhost:8080/post/1
+
+###
 GET http://localhost:8080/post?state=ACTIVE,ARCHIVED
 
 ###
@@ -21,6 +24,10 @@ GET http://localhost:8080/answer/ping
 
 ###
 http://localhost:8080/answer
+
+###
+http://localhost:8080/answer/1
+
 ###
 http://localhost:8080/answer?userId=1
 ###
