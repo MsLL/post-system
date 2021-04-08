@@ -12,3 +12,9 @@ mybatis:
   # mybatis log打印到标准输出，看该类实现，所以level 级别的日志实现都是往标准输出打
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

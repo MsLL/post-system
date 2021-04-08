@@ -133,4 +133,11 @@ GET http://localhost:8080/ping
 GET http://localhost:8080/parse?pserId=332cc40c41b88885d27ffd3aa89aa5a13eeb2203750f0fe32ed4dca96b695cd49da610348b9116a70c7998f2a5228aa2
 ###
 GET http://localhost:8080/shutdown
+
+
+
+//actuator 端点
+###
+GET http://localhost:8080/actuator/health
+
 ###
