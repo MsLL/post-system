@@ -5,8 +5,8 @@ spring:
       mysql:
 #mysqlServerHost is a mark,
         url: jdbc:mysql://mysqlServerHost:3306/post
-        username: root
-        password: 123456
+        username: /objects/postsystem/mysql/prod/username
+        password: /objects/postsystem/mysql/prod/password
         initial-size: 5
         max-active: 20
   redis:
