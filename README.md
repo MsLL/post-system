@@ -30,3 +30,8 @@
 | AnotherRedisDesktopManager | 开源、免费redis桌面客户端 | https://github.com/qishibo/AnotherRedisDesktopManager        |
 |                            |                           |                                                              |
 
+# 参考
+
+## websocket
+
+https://github.com/yidao620c/SpringBootBucket/tree/master/springboot-echarts
