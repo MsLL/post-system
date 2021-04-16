@@ -61,8 +61,8 @@ public class UserService {
     //todo : move to dao and use oom
     public Optional<UserModel> findByUserName(String username) {
         String sqlTemplate = "select user.* from user where user.NAME='%s'";
-        try {
-            Connection connection = dataSource.getConnection();
+        //NOTE-UPUP 2021/4/16 下午10:45 : 这种写法，当变量销毁时，对于实现了AutoCloseable接口的类 会自动他的调用close()方法。jdk8+
+        try (Connection connection = dataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(String.format(sqlTemplate, username));
             ResultSet resultSet = statement.executeQuery();
 
@@ -87,8 +87,7 @@ public class UserService {
 
     public Optional<UserModel> findById(int userId) {
         String sqlTemplate = "select user.* from user where user.ID=%s";
-        try {
-            Connection connection = dataSource.getConnection();
+        try (Connection connection = dataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(String.format(sqlTemplate, userId));
             ResultSet resultSet = statement.executeQuery();
 
@@ -112,12 +111,11 @@ public class UserService {
     }
 
     public List<UserModel> findByIds(int[] userIds) {
-        if(userIds==null || userIds.length==0){
+        if (userIds == null || userIds.length == 0) {
             return new ArrayList<>();
         }
         String sqlTemplate = "select user.* from user where user.ID in(%s)";
-        try {
-            Connection connection = dataSource.getConnection();
+        try (Connection connection = dataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(String.format(sqlTemplate, Ints.join(",", userIds)));
             ResultSet resultSet = statement.executeQuery();
             List<UserModel> list = new ArrayList<>();
@@ -143,8 +141,7 @@ public class UserService {
     public boolean varifyPassword(int userId, String password) {
         String sqlTemplate = "select count(1) as count from password_authenticate where USER_ID='%s' and PASSWORD='%s'";
 
-        try {
-            Connection connection = dataSource.getConnection();
+        try (Connection connection = dataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(String.format(sqlTemplate, userId, password));
             ResultSet resultSet = statement.executeQuery();
             resultSet.next();
