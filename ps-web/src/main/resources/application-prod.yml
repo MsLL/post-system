@@ -2,7 +2,7 @@
 spring:
   datasource:
     druid:
-      mysql:
+      mysql0:
 #mysqlServerHost is a mark,
         url: jdbc:mysql://mysqlServerHost:3306/post
         username: /objects/postsystem/mysql/prod/username

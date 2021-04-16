@@ -1,7 +1,7 @@
 spring:
   datasource:
     druid:
-      mysql:
+      mysql0:
         url: jdbc:mysql://localhost:3306/post
         username: /objects/postsystem/mysql/dev/username
         password: /objects/postsystem/mysql/dev/password
