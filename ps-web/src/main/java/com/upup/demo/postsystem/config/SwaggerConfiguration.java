@@ -9,7 +9,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/2/8 21:58
  * imitate https://developer.ibm.com/zh/articles/j-using-swagger-in-a-spring-boot-project/
  */

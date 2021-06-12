@@ -3,7 +3,7 @@ package com.upup.demo.postsystem.bss.user.enums;
 import com.upup.demo.postsystem.bss.user.Constants;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/28 上午3:22
  */
 public enum AuthenticateType {

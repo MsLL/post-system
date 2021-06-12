@@ -1,7 +1,7 @@
 package com.upup.demo.postsystem.exception;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/27 上午3:28
  */
 public class HdfsException extends BizException {

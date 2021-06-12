@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/30 下午3:14 doc https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter imitate
  * com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
  */

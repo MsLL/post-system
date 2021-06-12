@@ -3,7 +3,7 @@ package com.upup.demo.postsystem.util;
 import java.util.Arrays;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/2/14 23:04
  */
 public class SoutExceptionUtil {

@@ -4,7 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/31 下午11:57
  * imitate org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration
  */

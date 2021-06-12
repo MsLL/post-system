@@ -10,7 +10,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/30 下午8:08
  * https://www.runoob.com/java/java-sending-email.html
  * 包用的是jakarta.mail 1.6.5 see pom.xml

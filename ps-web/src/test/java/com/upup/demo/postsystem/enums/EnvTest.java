@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/2/14 18:30
  */
 class EnvTest {

@@ -11,7 +11,7 @@ import com.upup.demo.postsystem.bss.user.service.UserService;
 import java.util.Optional;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/28 上午4:00
  */
 //not need to add to spring container and notice AuthenticateServiceFactory use new keyword

@@ -9,7 +9,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/29 下午10:59
  */
 

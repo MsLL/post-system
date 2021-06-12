@@ -8,7 +8,7 @@ import org.joda.time.format.DateTimeFormatterBuilder;
 import org.junit.jupiter.api.Test;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/3/20 下午8:31
  */
 public class SimpleDateFormatTest {

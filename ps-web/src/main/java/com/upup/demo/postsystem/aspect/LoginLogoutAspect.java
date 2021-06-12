@@ -19,7 +19,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/26 下午11:14 记录登陆登出log，具体包括登陆ip,时间，登陆成功与否，失败原因。
  */
 @Aspect

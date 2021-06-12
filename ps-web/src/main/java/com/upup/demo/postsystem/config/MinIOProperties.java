@@ -3,7 +3,7 @@ package com.upup.demo.postsystem.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/2/9 21:48
  */
 @ConfigurationProperties("minio")

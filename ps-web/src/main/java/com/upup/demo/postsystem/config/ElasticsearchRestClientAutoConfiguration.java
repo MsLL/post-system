@@ -15,7 +15,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/2/13 20:16
  * imitate org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchRestClientAutoConfiguration
  * spring-boot autoconfigure 包已经有了es相关的自动配置，more看类上面conditional注解。直接用，这里先留白。

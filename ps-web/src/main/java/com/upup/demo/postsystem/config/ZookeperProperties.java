@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/3/6 下午9:56
  */
 @ConfigurationProperties("zookeeper")

@@ -21,7 +21,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/26 下午11:48 拦截掉未登陆的用户(没有约定的header || cookie里面没有约定的key, 或者值解码不是一个系统用户)。login api,ping apis放行。 see
  * https://segmentfault.com/a/1190000015642264
  */

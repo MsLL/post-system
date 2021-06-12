@@ -19,7 +19,7 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/26 下午11:15 this module only a Resource class ,so not create a package like ng/resource
  */
 @Controller

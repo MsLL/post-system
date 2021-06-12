@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 import org.springframework.core.annotation.AliasFor;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/30 上午3:20
  */
 @Target({ElementType.METHOD})

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/2/13 22:06
  * es没有create index if not exist api,所以搞个job，预创建索引。每天凌晨跑一次，保证当天及后三天的index都已经创建。
  */

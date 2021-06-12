@@ -20,7 +20,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/30 上午1:05 //NOTE-UPUP 2021/3/30 上午12:31 : 不用ORM示例。
  */
 

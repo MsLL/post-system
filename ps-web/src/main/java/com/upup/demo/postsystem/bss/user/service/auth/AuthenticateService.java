@@ -4,7 +4,7 @@ import com.upup.demo.postsystem.bss.user.model.auth.AuthenticateModel;
 import com.upup.demo.postsystem.bss.user.model.auth.AuthenticateResult;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/28 上午3:21
  */
 public interface AuthenticateService {

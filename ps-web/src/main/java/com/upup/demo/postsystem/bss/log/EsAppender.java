@@ -34,7 +34,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/2/9 23:00
  */
 public class EsAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {

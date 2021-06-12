@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/27 上午3:07 see :https://www.cnblogs.com/xuwujing/p/10933082.html
  */
 //NOTE-UPUP 2021/1/27 上午3:07 : 全局异常处理

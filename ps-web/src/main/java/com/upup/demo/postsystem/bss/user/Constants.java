@@ -1,7 +1,7 @@
 package com.upup.demo.postsystem.bss.user;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/28 下午8:14
  */
 public class Constants {

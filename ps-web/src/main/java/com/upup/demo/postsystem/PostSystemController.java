@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/27 下午12:29 yes controller, not resource
  */
 @Controller

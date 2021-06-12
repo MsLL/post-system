@@ -14,7 +14,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/28 上午12:18
  */
 //NOTE-UPUP 2021/3/18 上午12:02 : @Order(2) should keep priority  lower than LoginInterceptor logically。,has move to WebMvcConfig

@@ -6,7 +6,7 @@ import com.upup.demo.postsystem.bss.user.model.UserModel;
 import org.junit.jupiter.api.Test;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/1/30 下午7:15
  */
 public class GsonTest {

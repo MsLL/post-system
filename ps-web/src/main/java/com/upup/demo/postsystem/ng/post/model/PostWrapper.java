@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * @Author tao.li
+ * 
  * @Date 2021/3/27 上午1:09 Post DTO 类。没必要专门搞个dto package，因为目前类比较少，粗一点都叫model 数据模型。
  * TODO: 改个好名字。
  */
