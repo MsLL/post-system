@@ -57,6 +57,14 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- h2 做dao/mapper层 ut用-->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.200</version>
+      <scope>test</scope>
+    </dependency>
+
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
